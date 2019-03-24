@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (Controller) {
 	"use strict";
 
-	return Controller.extend("team.template.Git_Study.controller.ViewMain", {
+	return Controller.extend("team.template.gitstudy.controller.ViewMain", {
 		onInit: function () {
 
 		}

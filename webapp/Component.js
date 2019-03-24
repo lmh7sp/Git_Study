@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"team/template/Git_Study/model/models"
+	"team/template/gitstudy/model/models"
 ], function (UIComponent, Device, models) {
 	"use strict";
 
-	return UIComponent.extend("team.template.Git_Study.Component", {
+	return UIComponent.extend("team.template.gitstudy.Component", {
 
 		metadata: {
 			manifest: "json"
