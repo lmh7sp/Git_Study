@@ -4,7 +4,7 @@
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page showHeader="false" class="sapUiResponsiveContentPadding">
 		<content>
-			<List id="listExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}">
+			<List id="listExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}" itemPress=".onItemPress">
 				<items>
 					<StandardListItem
 						title="{FirstName} {LastName}"

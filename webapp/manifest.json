@@ -71,9 +71,9 @@
 				"name": "home",
 				"target": "home"
 			}, {
-				"name": "tableSplitContainer",
-				"pattern": "Table",
-				"target": "tableSplitContainer"
+				"name": "listSplitContainer",
+				"pattern": "List",
+				"target": "list"
 			}],
 			"targets": {
 				"home": {
@@ -87,12 +87,14 @@
 					"viewName": "NotFound",
 					"transition": "show"
 				},
-				"tableSplitContainer": {
+				"list": {
+					"viewType": "XML",
 					"transition": "show",
-					"viewName": "TableSplitContainer",
-					"viewId": "tableSplitContainer",
-					"viewLevel": 2,
-					"viewPath": "sap.ui.study.git.view.list"
+					"clearControlAggregation": false,
+					"viewId": "listSplitContainer",
+					"viewName": "ListSplitContainer",
+					"viewPath": "sap.ui.study.git.view.list",
+					"viewLevel": 2
 				}
 			}
 		},

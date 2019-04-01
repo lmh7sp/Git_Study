@@ -1,11 +1,11 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.ui.study.git.controller.list.TableSplitContainer"
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.ui.study.git.controller.list.ListSplitContainer"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Title"
 		id="splitContainerPage"
 		showNavButton="true"
 		navButtonPress=".onNavBack">
 		<content>
-			<SplitContainer id="tableSplit">
+			<SplitContainer id="listSplit">
 				<masterPages>
 					<Page showHeader="false">
 						<content>

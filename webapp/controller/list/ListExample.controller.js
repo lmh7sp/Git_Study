@@ -4,7 +4,9 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("sap.ui.study.git.controller.list.ListExample", {
-
+		onItemPress:{
+			
+		}
 	});
-
+	
 });

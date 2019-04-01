@@ -6,7 +6,7 @@ sap.ui.define([
 	return BaseController.extend("sap.ui.study.git.controller.Home", {
 
 		onNavToTable : function () {
-			this.getRouter().navTo("tableSplitContainer");
+			this.getRouter().navTo("listSplitContainer");
 		},
 	});
 

@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Dialog 
+		title="Dialog"
+		contentHeight="40%" 
+		contentWidth="40%">
+		<content>
+		</content>
+		<endButton>
+			<Button
+				text="닫기"
+				press=".onCloseDialog"/>
+			</Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
