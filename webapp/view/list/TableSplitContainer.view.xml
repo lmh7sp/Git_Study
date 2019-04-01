@@ -1,0 +1,23 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.ui.study.git.controller.list.TableSplitContainer"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title"
+		id="splitContainerPage"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		<content>
+			<SplitContainer id="tableSplit">
+				<masterPages>
+					<Page showHeader="false">
+						<content>
+							<Button text="Table 예제" width="100%" press=".onPressTableExample"></Button>
+							<Button text="List 예제" width="100%" press=".onPressListExample"></Button>
+						</content>
+					</Page>
+				</masterPages>
+				<detailPages>
+					<mvc:XMLView viewName="sap.ui.study.git.view.list.Dummy"/>
+				</detailPages>
+			</SplitContainer>
+		</content>
+	</Page>
+</mvc:View>

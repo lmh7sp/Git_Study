@@ -71,28 +71,28 @@
 				"name": "home",
 				"target": "home"
 			}, {
-				"name": "tableExample",
-				"pattern": "table",
-				"titleTarget": "",
-				"greedy": false,
-				"target": "tableExample"
+				"name": "tableSplitContainer",
+				"pattern": "Table",
+				"target": "tableSplitContainer"
 			}],
 			"targets": {
 				"home": {
 					"viewId": "home",
 					"viewName": "Home",
-					"viewLevel": 1
+					"viewLevel": 1,
+					"transition": "show"
 				},
 				"notFound": {
 					"viewId": "notFound",
 					"viewName": "NotFound",
 					"transition": "show"
 				},
-				"tableExample": {
-					"viewName": "TableExample",
-					"viewId": "tableExample",
-					"viewPath": "sap.ui.study.git.view.list",
-					"viewLevel": 2
+				"tableSplitContainer": {
+					"transition": "show",
+					"viewName": "TableSplitContainer",
+					"viewId": "tableSplitContainer",
+					"viewLevel": 2,
+					"viewPath": "sap.ui.study.git.view.list"
 				}
 			}
 		},

@@ -1,11 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 	controllerName="sap.ui.study.git.controller.list.TableExample" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page
-		id="tableExamplePage"
-		title="{i18n>EmployeeList}"
-		showNavButton="true"
-		navButtonPress=".onNavBack"
-		class="sapUiResponsiveContentPadding">
+	<Page showHeader="false" class="sapUiResponsiveContentPadding">
 		<content>
 			<Table id="tableExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}">
 				<columns>

@@ -1,9 +1,9 @@
 sap.ui.define([
 	"sap/ui/study/git/controller/BaseController"
-], function (Controller) {
+], function (BaseController) {
 	"use strict";
 
-	return Controller.extend("sap.ui.study.git.controller.list.TableExample", {
+	return BaseController.extend("sap.ui.study.git.controller.list.TableExample", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.

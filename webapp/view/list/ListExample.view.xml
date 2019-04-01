@@ -1,0 +1,17 @@
+<mvc:View
+	controllerName="sap.ui.study.git.controller.list.ListExample"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page showHeader="false" class="sapUiResponsiveContentPadding">
+		<content>
+			<List id="listExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}">
+				<items>
+					<StandardListItem
+						title="{FirstName} {LastName}"
+						iconDensityAware="false"
+						iconInset="false"/>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>
