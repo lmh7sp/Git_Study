@@ -11,7 +11,6 @@
 			</Panel>
 			<Panel headerText="업무별 예제">
 				<content>
-					<Button text="{i18n>ShowTable}" press=".onNavToTable" class="sapUiTinyMarginEnd"/>
 				</content>
 			</Panel>
 		</content>
