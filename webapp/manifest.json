@@ -1,94 +1,103 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"id": "team.template.gitstudy",
+		"id": "sap.ui.study.git",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.40.12"
+		"dataSources": {
+			"employeeRemote": {
+				"uri": "/here/goes/your/serviceUrl/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
-		"icons": {
-			"icon": "",
-			"favIcon": "",
-			"phone": "",
-			"phone@2": "",
-			"tablet": "",
-			"tablet@2": ""
-		},
 		"deviceTypes": {
 			"desktop": true,
 			"tablet": true,
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
-		"flexEnabled": false,
 		"rootView": {
-			"viewName": "team.template.gitstudy.view.ViewMain",
+			"viewName": "sap.ui.study.git.view.App",
 			"type": "XML",
 			"async": true,
-			"id": "ViewMain"
+			"id": "app"
 		},
 		"dependencies": {
-			"minUI5Version": "1.60.1",
+			"minUI5Version": "1.30",
 			"libs": {
-				"sap.ui.layout": {},
-				"sap.ui.core": {},
-				"sap.m": {}
+				"sap.m": {},
+				"sap.ui.core": {}
 			}
-		},
-		"contentDensities": {
-			"compact": true,
-			"cozy": true
 		},
 		"models": {
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "team.template.gitstudy.i18n.i18n"
+					"bundleName": "sap.ui.study.git.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "employeeRemote"
 			}
-		},
-		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
 		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"async": true,
-				"viewPath": "team.template.gitstudy.view",
-				"controlAggregation": "pages",
+				"viewPath": "sap.ui.study.git.view",
 				"controlId": "app",
-				"clearControlAggregation": false
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": "notFound"
+				},
+				"async": true
 			},
 			"routes": [{
-				"name": "RouteViewMain",
-				"pattern": "RouteViewMain",
-				"target": ["TargetViewMain"]
+				"pattern": "",
+				"name": "appHome",
+				"target": "home"
+			}, {
+				"pattern": "list",
+				"name": "employeeList",
+				"target": "employees"
 			}],
 			"targets": {
-				"TargetViewMain": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "ViewMain",
-					"viewName": "ViewMain"
+				"home": {
+					"viewId": "home",
+					"viewName": "Home",
+					"viewLevel": 1
+				},
+				"notFound": {
+					"viewId": "notFound",
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"employees": {
+					"viewId": "employeeList",
+					"viewPath": "sap.ui.study.git.view.list",
+					"viewName": "EmployeeList",
+					"viewLevel": 2
 				}
 			}
-		}
+		},
+		"contentDensities": {
+			"compact": false,
+			"cozy": false
+		},
+		"flexEnabled": true
 	}
 }
