@@ -68,12 +68,14 @@
 			},
 			"routes": [{
 				"pattern": "",
-				"name": "appHome",
+				"name": "home",
 				"target": "home"
 			}, {
-				"pattern": "list",
-				"name": "employeeList",
-				"target": "employees"
+				"name": "tableExample",
+				"pattern": "table",
+				"titleTarget": "",
+				"greedy": false,
+				"target": "tableExample"
 			}],
 			"targets": {
 				"home": {
@@ -86,10 +88,10 @@
 					"viewName": "NotFound",
 					"transition": "show"
 				},
-				"employees": {
-					"viewId": "employeeList",
+				"tableExample": {
+					"viewName": "TableExample",
+					"viewId": "tableExample",
 					"viewPath": "sap.ui.study.git.view.list",
-					"viewName": "EmployeeList",
 					"viewLevel": 2
 				}
 			}

@@ -5,10 +5,9 @@ sap.ui.define([
 
 	return BaseController.extend("sap.ui.study.git.controller.Home", {
 
-		onNavToEmployees : function () {
-			this.getRouter().navTo("employeeList");
-		}
-
+		onNavToTable : function () {
+			this.getRouter().navTo("tableExample");
+		},
 	});
 
 });

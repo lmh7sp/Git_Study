@@ -1,0 +1,42 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="sap.ui.study.git.controller.list.TableExample" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page
+		id="tableExamplePage"
+		title="{i18n>EmployeeList}"
+		showNavButton="true"
+		navButtonPress=".onNavBack"
+		class="sapUiResponsiveContentPadding">
+		<content>
+			<Table id="tableExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}">
+				<columns>
+					<Column>
+						<Text text="{i18n>EmployeesLastName}" />
+					</Column>
+					<Column>
+						<Text text="{i18n>EmployeesFirstName}" />
+					</Column>
+					<Column>
+						<Text text="{i18n>EmployeesCity}" />
+					</Column>
+					<Column>
+						<Text text="{i18n>EmployeesHomePhone}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text
+								text="{LastName}" />
+							<Text
+								text="{FirstName}" />
+							<Text
+								text="{City}" />
+							<Text
+								text="{HomePhone}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>
