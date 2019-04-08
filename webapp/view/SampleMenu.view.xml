@@ -1,0 +1,49 @@
+<mvc:View
+	controllerName="sap.ui.study.git.controller.SampleMenu"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l = "sap.ui.layout">
+	<Page class="sapUiResponsiveContentPadding" showHeader="false">
+		<content>
+			<l:Grid defaultSpan="XL2 L3 M6 S12">
+				<l:content>
+					
+					<Panel>
+						<headerToolbar>
+							<Toolbar>
+								<content>
+									<Button text="Layout" width="100%" press="onPressButton">
+										<customData>
+											<core:CustomData key="goBtn" value="layout"></core:CustomData>
+										</customData>
+									</Button>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<Text text="Layout에 대한 내용"></Text>
+						</content>
+					</Panel>
+					
+					<Panel>
+						<headerToolbar>
+							<Toolbar>
+								<content>
+									<Button text="ListBase" width="100%" press="onPressButton">
+										<customData>
+											<core:CustomData key="goBtn" value="listBase"></core:CustomData>
+										</customData>
+									</Button>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<Text text="Table에 대한 내용"></Text>
+						</content>
+					</Panel>
+				</l:content>
+			</l:Grid>
+		</content>
+	</Page>
+</mvc:View>

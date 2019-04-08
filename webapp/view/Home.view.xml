@@ -2,15 +2,11 @@
 	controllerName="sap.ui.study.git.controller.Home"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page title="{i18n>homePageTitle}" class="sapUiResponsiveContentPadding">
+	<Page class="sapUiResponsiveContentPadding" showHeader="false">
 		<content>
-			<Panel headerText="항목별 예제">
+			<Panel headerText="메인 내용">
 				<content>
-					<Button id="tableExampleBtn" text="{i18n>ShowTable}" press=".onNavToTable" class="sapUiTinyMarginEnd"/>
-				</content>
-			</Panel>
-			<Panel headerText="업무별 예제">
-				<content>
+					<Text text="여기 나오는 내용은 이 웹사이트를 만든 목적을 설명 외 공지사항이나 다양한 거"></Text>
 				</content>
 			</Panel>
 		</content>

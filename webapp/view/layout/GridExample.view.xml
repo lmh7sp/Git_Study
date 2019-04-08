@@ -1,0 +1,18 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="sap.ui.study.git.controller.layout.GridExample" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="sapUiResponsiveContentPadding">
+		<content>
+			<l:Grid content="{/Employees}">
+				<l:content>
+					<VBox>
+							<Text text="{LastName} {FirstName}" />
+							<Text text="{City}" />
+							<Text text="{HomePhone}" />
+					</VBox>
+				</l:content>
+			</l:Grid>
+			
+							
+		</content>
+	</Page>
+</mvc:View>

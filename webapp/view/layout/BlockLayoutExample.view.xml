@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="sap.ui.study.git.controller.layout.BlockLayoutExample" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="sapUiResponsiveContentPadding">
+		<content>
+			<l:BlockLayout background="Dashboard">
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell>
+						<l:content>
+							<Text text="BlockLayout"></Text>
+						</l:content>
+					</l:BlockLayoutCell>
+					<l:BlockLayoutCell>
+						<l:content>
+							<Text text="BlockLayout"></Text>
+						</l:content>
+					</l:BlockLayoutCell>
+					<l:BlockLayoutCell>
+						<l:content>
+							<Text text="BlockLayout"></Text>
+						</l:content>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+				<l:BlockLayoutRow scrollable="true" content="{/Employees}">
+					<l:BlockLayoutCell>
+						<l:content>
+							<VBox>
+								<Text text="{LastName} {FirstName}" />
+								<Text text="{City}" />
+								<Text text="{HomePhone}" />
+							</VBox>
+						</l:content>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+			</l:BlockLayout>
+		</content>
+	</Page>
+</mvc:View>

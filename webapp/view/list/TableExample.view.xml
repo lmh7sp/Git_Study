@@ -1,37 +1,89 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
 	controllerName="sap.ui.study.git.controller.list.TableExample" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page showHeader="false" class="sapUiResponsiveContentPadding">
 		<content>
-			<Table id="tableExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}">
-				<columns>
-					<Column>
-						<Text text="{i18n>EmployeesLastName}" />
-					</Column>
-					<Column>
-						<Text text="{i18n>EmployeesFirstName}" />
-					</Column>
-					<Column>
-						<Text text="{i18n>EmployeesCity}" />
-					</Column>
-					<Column>
-						<Text text="{i18n>EmployeesHomePhone}" />
-					</Column>
-				</columns>
-				<items>
-					<ColumnListItem>
-						<cells>
-							<Text
-								text="{LastName}" />
-							<Text
-								text="{FirstName}" />
-							<Text
-								text="{City}" />
-							<Text
-								text="{HomePhone}" />
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
+			<l:VerticalLayout width="100%">
+				<l:content>
+					<l:HorizontalLayout>
+						<l:content>
+							<l:VerticalLayout>
+								<l:content>
+									<Label text="{i18n>EmployeesLastName}"></Label>
+									<SearchField liveChange="onSearch" placeholder="{i18n>EmployeesLastName}">
+										<customData>
+											<core:CustomData value="LastName"></core:CustomData>
+										</customData>
+									</SearchField>
+								</l:content>	
+							</l:VerticalLayout>
+							<l:VerticalLayout>
+								<l:content>
+									<Label text="{i18n>EmployeesFirstName}"></Label>
+									<SearchField liveChange="onSearch" placeholder="{i18n>EmployeesFirstName}">
+										<customData>
+											<core:CustomData value="FirstName"></core:CustomData>
+										</customData>
+									</SearchField>
+								</l:content>	
+							</l:VerticalLayout>
+							<l:VerticalLayout>
+								<l:content>
+									<Label text="{i18n>EmployeesCity}"></Label>
+									<SearchField liveChange="onSearch" placeholder="{i18n>EmployeesCity}">
+										<customData>
+											<core:CustomData value="City"></core:CustomData>
+										</customData>
+									</SearchField>
+								</l:content>	
+							</l:VerticalLayout>
+							<l:VerticalLayout>
+								<l:content>
+									<Label text="{i18n>EmployeesHomePhone}"></Label>
+									<SearchField liveChange="onSearch" placeholder="{i18n>EmployeesHomePhone}">
+										<customData>
+											<core:CustomData value="HomePhone"></core:CustomData>
+										</customData>
+									</SearchField>
+								</l:content>	
+							</l:VerticalLayout>
+						</l:content>
+					</l:HorizontalLayout>
+					<l:HorizontalLayout>
+						<l:content>
+							<Table id="tableExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}">
+								<columns>
+									<Column>
+										<Text text="{i18n>EmployeesLastName}" />
+									</Column>
+									<Column>
+										<Text text="{i18n>EmployeesFirstName}" />
+									</Column>
+									<Column>
+										<Text text="{i18n>EmployeesCity}" />
+									</Column>
+									<Column>
+										<Text text="{i18n>EmployeesHomePhone}" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text
+												text="{LastName}" />
+											<Text
+												text="{FirstName}" />
+											<Text
+												text="{City}" />
+											<Text
+												text="{HomePhone}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</l:content>
+					</l:HorizontalLayout>
+				</l:content>
+			</l:VerticalLayout>
 		</content>
 	</Page>
 </mvc:View>

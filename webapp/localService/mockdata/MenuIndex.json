@@ -1,0 +1,20 @@
+[
+	{
+		"menu": "ListBase",
+		"route": "listBase",
+		"items":[
+			{"item":"table", "address":"address"},
+			{"item":"list", "address":"address"}
+			],
+		"info":"설명"
+	},{
+		"menu": "Layout",
+		"route": "layout",
+		"items":[
+			{"item":"GridLayout", "address":"address"},
+			{"item":"Vertical&Horizontal", "address":"address"}
+			],
+		"info":"설명"
+	}
+	
+]

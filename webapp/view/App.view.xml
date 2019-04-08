@@ -1,8 +1,44 @@
 <mvc:View
 	controllerName="sap.ui.study.git.controller.App"
 	xmlns="sap.m"
+	xmlns:tnt="sap.tnt"
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
 	displayBlock="true">
+	<tnt:ToolHeader>
+		<Button icon="sap-icon://home" type="Transparent" press="onPressHome">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<IconTabHeader id="iconTabHeader"
+			selectedKey="invalidKey"
+			select="onSelectTab"
+			showOverflowSelectList="true"
+			backgroundDesign="Transparent"
+			mode="Inline">
+			<layoutData>
+				<OverflowToolbarLayoutData
+					priority="NeverOverflow"
+					shrinkable="true" />
+			</layoutData>
+			<items>
+				<IconTabFilter key="10" text="Sample">
+				</IconTabFilter>
+				<IconTabFilter key="20" text="추가메뉴가 생기면 추가할 부분">
+				</IconTabFilter>
+			</items>
+		</IconTabHeader>
+		<ToolbarSpacer/>
+		<core:Icon src="sap-icon://activate">
+		</core:Icon>
+		<Title text="제목" wrapping="false">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low" />
+			</layoutData>
+		</Title>
+		<ToolbarSpacer/>
+	</tnt:ToolHeader>
 	<Shell appWidthLimited="false">
 		<App id="app"/>
 	</Shell>

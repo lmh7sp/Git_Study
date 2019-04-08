@@ -1,0 +1,34 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="sap.ui.study.git.controller.layout.ResponsiveSplitterExample" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="sapUiResponsiveContentPadding">
+		<content>
+			<l:ResponsiveSplitter  defaultPane="default">
+				<l:PaneContainer>
+					<l:SplitPane requiredParentWidth="400"  id="default">
+						<Panel headerText="기본 Pane">
+							<content>
+								<Text text="111111111111"></Text>
+							</content>
+						</Panel>
+					</l:SplitPane>
+					<l:PaneContainer orientation="Vertical">
+						<l:SplitPane requiredParentWidth="600">
+							<Panel headerText="최소600">
+								<content>
+									<Text text="22222222222"></Text>
+								</content>
+							</Panel>
+						</l:SplitPane>
+						<l:SplitPane requiredParentWidth="800">
+							<Panel headerText="최소800">
+								<content>
+									<Text text="33333333333"></Text>
+								</content>
+							</Panel>
+						</l:SplitPane>
+					</l:PaneContainer>
+				</l:PaneContainer>
+			</l:ResponsiveSplitter>
+		</content>
+	</Page>
+</mvc:View>

@@ -71,9 +71,21 @@
 				"name": "home",
 				"target": "home"
 			}, {
-				"name": "listSplitContainer",
-				"pattern": "List",
-				"target": "list"
+				"name": "sampleMenu",
+				"pattern": "SampleMenu",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["sampleMenu"]
+			}, {
+				"name": "listBase",
+				"pattern": "SampleMenu/ListBase",
+				"target": "listBase"
+			}, {
+				"name": "layout",
+				"pattern": "SampleMenu/Layout",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["layout"]
 			}],
 			"targets": {
 				"home": {
@@ -87,14 +99,31 @@
 					"viewName": "NotFound",
 					"transition": "show"
 				},
-				"list": {
+				"sampleMenu": {
 					"viewType": "XML",
 					"transition": "show",
 					"clearControlAggregation": false,
-					"viewId": "listSplitContainer",
-					"viewName": "ListSplitContainer",
-					"viewPath": "sap.ui.study.git.view.list",
+					"viewName": "SampleMenu",
+					"viewId": "sampleMenu",
 					"viewLevel": 2
+				},
+				"listBase": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "ListBaseMain",
+					"viewId": "listBaseMain",
+					"viewLevel": 3,
+					"viewPath": "sap.ui.study.git.view.list"
+				},
+				"layout": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "LayoutMain",
+					"viewId": "layoutMain",
+					"viewPath": "sap.ui.study.git.view.layout",
+					"viewLevel": 3
 				}
 			}
 		},

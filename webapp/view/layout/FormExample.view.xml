@@ -1,0 +1,61 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="sap.ui.study.git.controller.layout.FormExample" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="sapUiResponsiveContentPadding">
+		<content>
+			<f:Form>
+				<f:title>
+					<core:Title text="Form"/>
+				</f:title>
+				<f:layout>
+					<f:ColumnLayout 
+						columnsM="2"
+						columnsL="3"
+						columnsXL="4"
+					/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="FirstName">
+								<f:fields>
+									<Input />
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+						
+						<f:formElements>
+							<f:FormElement label="LastName">
+								<f:fields>
+									<Input />
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+						
+						<f:formElements>
+							<f:FormElement label="Address">
+								<f:fields>
+									<Input />
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+						
+						<f:formElements>
+							<f:FormElement label="Phone">
+								<f:fields>
+									<Input />
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="send"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
