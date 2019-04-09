@@ -5,9 +5,10 @@ sap.ui.define([
 
 	return UIComponent.extend("sap.ui.study.git.Component", {
 
-		metadata: {
-			manifest: "json"
-		},
+		metadata: [
+			{manifest: "json"},
+			{routerInfo: "json"}
+		],
 
 		init: function () {
 			// call the init function of the parent

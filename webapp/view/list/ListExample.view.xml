@@ -1,9 +1,10 @@
 <mvc:View
 	controllerName="sap.ui.study.git.controller.list.ListExample"
 	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
-	<Page showHeader="false" class="sapUiResponsiveContentPadding">
-		<content>
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout">
+	<l:VerticalLayout width="100%" class="sapUiResponsiveContentPadding">
+		<l:content>
 			<List id="listExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}" itemPress=".onItemPress">
 				<items>
 					<StandardListItem
@@ -12,6 +13,6 @@
 						iconInset="false"/>
 				</items>
 			</List>
-		</content>
-	</Page>
+		</l:content>
+	</l:VerticalLayout>
 </mvc:View>

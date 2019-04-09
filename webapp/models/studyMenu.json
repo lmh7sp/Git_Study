@@ -1,0 +1,32 @@
+ [
+	{
+		"text": "JQuery",
+		"ref": "sap-icon://attachment-audio",
+		"type": "Inactive",
+		"goTo":"",
+		"nodes":
+		[
+			{
+				"text": "몰라",
+				"ref": "sap-icon://create",
+				"type": "Inactive",
+				"goTo":"ListExample"
+			}
+		]
+	},
+	{
+		"text": "SAPUI5",
+		"ref": "sap-icon://customer-financial-fact-sheet",
+		"type": "Inactive",
+		"goTo":"",
+		"nodes":
+		[
+			{
+				"text": "Sample",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"samplePage"
+			}
+		]
+	}
+]

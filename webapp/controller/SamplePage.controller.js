@@ -3,8 +3,8 @@ sap.ui.define([
 ], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("sap.ui.study.git.controller.Home", {
-
+	return BaseController.extend("sap.ui.study.git.controller.SamplePage", {
+	
 	});
 
 });

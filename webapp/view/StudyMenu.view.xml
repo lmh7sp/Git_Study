@@ -1,22 +1,21 @@
 <mvc:View
-	controllerName="sap.ui.study.git.controller.SampleMenu"
+	controllerName="sap.ui.study.git.controller.StudyMenu"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
-	xmlns:l = "sap.ui.layout">	 	
+	xmlns:l = "sap.ui.layout">	 
 	<VBox>
 		<SearchField liveChange="onSearch" placeholder="Filter">
 		</SearchField>
 		<Tree
 		    id="tree"
-		    items="{sampleMenu>/}"
+		    items="{studyMenu>/}"
 		    itemPress="onPressTreeItem">
-			<StandardTreeItem type="{sampleMenu>type}" title="{sampleMenu>text}" icon="{sampleMenu>ref}">
+			<StandardTreeItem type="{studyMenu>type}" title="{studyMenu>text}" icon="{studyMenu>ref}">
 				<customData>
-					<core:CustomData key="goTo" value="{sampleMenu>goTo}"></core:CustomData>
+					<core:CustomData key="goTo" value="{studyMenu>goTo}"></core:CustomData>
 				</customData>
 			</StandardTreeItem>
 		</Tree>
 	</VBox>
-
 </mvc:View>

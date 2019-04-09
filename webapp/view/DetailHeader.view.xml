@@ -1,0 +1,28 @@
+<mvc:View
+	controllerName="sap.ui.study.git.controller.DetailHeader"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	displayBlock="true">
+	<Page showHeader="false">
+		<subHeader>
+			<Bar>
+				<contentMiddle>
+					<Title id="myTitle"></Title>
+				</contentMiddle>
+				<contentRight>
+					<Button icon="sap-icon://syntax" press="goCode">
+						<customData>
+							<core:CustomData key="code" value="TableExample"></core:CustomData>
+						</customData>
+					</Button>
+				</contentRight>
+			</Bar>
+		</subHeader>
+		<content>
+			<NavContainer id="navContainer">
+				
+			</NavContainer>
+		</content>
+	</Page>
+</mvc:View>

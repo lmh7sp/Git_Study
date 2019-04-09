@@ -1,0 +1,13 @@
+<mvc:View
+	controllerName="sap.ui.study.git.controller.HomePage"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+	<Page showHeader="false">
+		<Panel headerText="홈">
+			<content>
+				<Text text="정보글"></Text>
+			</content>
+		</Panel>
+	</Page>
+</mvc:View>

@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (BaseController,Filter) {
 	"use strict";
 
-	return BaseController.extend("sap.ui.study.git.controller.SampleMenu", {
+	return BaseController.extend("sap.ui.study.git.controller.StudyMenu", {
 		onPressTreeItem: function(event){
 			var oBtn = event.getParameters().listItem.getCustomData()[0];
 			if(oBtn && oBtn.getKey() == "goTo")

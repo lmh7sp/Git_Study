@@ -1,0 +1,16 @@
+<mvc:View
+	controllerName="sap.ui.study.git.controller.list.TableCodeEditor"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:ce="sap.ui.codeeditor"
+	displayBlock="true">
+	<IconTabHeader id="iconTabHeader"
+		selectedKey="invalidKey"
+		select="onSelectCode">
+		<items>
+			<IconTabFilter text="View" key="A"></IconTabFilter>
+			<IconTabFilter text="Controller" key="B"></IconTabFilter>
+		</items>
+	</IconTabHeader>
+	<ce:CodeEditor id="codeEditor" height="100%" syntaxHints="false" type="javascript" />
+</mvc:View>

@@ -16,7 +16,7 @@ sap.ui.define([
 		},
 		onSearch: function(event){
 			var aFilters = [],
-				sQuery = event.getSource().getValue(), 
+				sQuery = event.getSource().getValue(),
 				sPath = event.getSource().getCustomData()[0].getValue(),
 				oFilter,
 				oTable = this.byId("tableExample"),
@@ -29,7 +29,6 @@ sap.ui.define([
 			oBinding = oTable.getBinding("items");
 			oBinding.filter(aFilters, "Application");
 		}
-
 	});
 
 });

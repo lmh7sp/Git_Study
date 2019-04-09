@@ -5,26 +5,20 @@
 			<l:ResponsiveSplitter  defaultPane="default">
 				<l:PaneContainer>
 					<l:SplitPane requiredParentWidth="400"  id="default">
-						<Panel headerText="기본 Pane">
-							<content>
-								<Text text="111111111111"></Text>
-							</content>
-						</Panel>
+						<Page title="기본 Pane" id="panelOne">
+							<Text text="111111111111"></Text>
+						</Page>
 					</l:SplitPane>
 					<l:PaneContainer orientation="Vertical">
 						<l:SplitPane requiredParentWidth="600">
-							<Panel headerText="최소600">
-								<content>
-									<Text text="22222222222"></Text>
-								</content>
-							</Panel>
+							<Page title="최소600" id="panelTwo">
+								<Text text="22222222222"></Text>
+							</Page>
 						</l:SplitPane>
 						<l:SplitPane requiredParentWidth="800">
-							<Panel headerText="최소800">
-								<content>
-									<Text text="33333333333"></Text>
-								</content>
-							</Panel>
+							<Page title="최소800" id="panelThree">
+								<Text text="33333333333"></Text>
+							</Page>
 						</l:SplitPane>
 					</l:PaneContainer>
 				</l:PaneContainer>

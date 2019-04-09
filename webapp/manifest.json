@@ -3,7 +3,7 @@
 	"sap.app": {
 		"id": "sap.ui.study.git",
 		"type": "application",
-		"i18n": "i18n/i18n.properties",
+		"i18n": "models/i18n/i18n.properties",
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"applicationVersion": {
@@ -46,11 +46,23 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "sap.ui.study.git.i18n.i18n"
+					"bundleName": "sap.ui.study.git.models.i18n.i18n"
 				}
 			},
 			"": {
 				"dataSource": "employeeRemote"
+			},
+			"sampleMenu": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "models/sampleMenu.json",
+				"settings": {},
+				"preload": false
+			},
+			"studyMenu": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "models/studyMenu.json",
+				"preload": false
 			}
 		},
 		"routing": {
@@ -58,46 +70,83 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "sap.ui.study.git.view",
-				"controlId": "app",
-				"controlAggregation": "pages",
-				"transition": "slide",
+				"controlId": "container",
+				"controlAggregation": "detailPages",
+				"transition": "flip",
 				"bypassed": {
 					"target": "notFound"
 				},
-				"async": true
+				"async": true,
+				"viewLevel": 1
 			},
 			"routes": [{
+				"name": "homePage",
 				"pattern": "",
-				"name": "home",
-				"target": "home"
-			}, {
-				"name": "sampleMenu",
-				"pattern": "SampleMenu",
 				"titleTarget": "",
 				"greedy": false,
-				"target": ["sampleMenu"]
+				"target": ["homePage"]
 			}, {
-				"name": "listBase",
-				"pattern": "SampleMenu/ListBase",
-				"target": "listBase"
-			}, {
-				"name": "layout",
-				"pattern": "SampleMenu/Layout",
+				"name": "samplePage",
+				"pattern": "sample",
 				"titleTarget": "",
 				"greedy": false,
-				"target": ["layout"]
+				"target": ["sampleMenu", "samplePage"]
+			}, {
+				"name": "listExample",
+				"pattern": "sample/listbase/list",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["listExample", "sampleMenu"]
+			}, {
+				"name": "tableExample",
+				"pattern": "sample/listbase/table",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["sampleMenu", "tableExample"]
+			}, {
+				"name": "tableCodeEditor",
+				"pattern": "sample/listbase/tablecode",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["tableCodeEditor", "sampleMenu"]
+			}, {
+				"name": "blockLayoutExample",
+				"pattern": "sample/layout/block_layout",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["blockLayoutExample", "sampleMenu"]
+			}, {
+				"name": "formExample",
+				"pattern": "sample/layout/form",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["formExample", "sampleMenu"]
+			}, {
+				"name": "gridExample",
+				"pattern": "sample/layout/grid",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["gridExample", "sampleMenu"]
+			}, {
+				"name": "responsiveSplitterExample",
+				"pattern": "sample/layout/responsive_splitter",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["sampleMenu", "panelOne", "panelTwo", "panelThree"]
+			}, {
+				"name": "studyPage",
+				"pattern": "study",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["studyMenu", "studyPage"]
 			}],
 			"targets": {
-				"home": {
-					"viewId": "home",
-					"viewName": "Home",
-					"viewLevel": 1,
-					"transition": "show"
-				},
 				"notFound": {
 					"viewId": "notFound",
 					"viewName": "NotFound",
-					"transition": "show"
+					"transition": "show",
+					"controlAggregation": "detailPages",
+					"viewLevel": 1
 				},
 				"sampleMenu": {
 					"viewType": "XML",
@@ -105,25 +154,163 @@
 					"clearControlAggregation": false,
 					"viewName": "SampleMenu",
 					"viewId": "sampleMenu",
-					"viewLevel": 2
+					"viewLevel": 1,
+					"controlAggregation": "masterPages"
 				},
-				"listBase": {
+				"samplePage": {
 					"viewType": "XML",
 					"transition": "show",
 					"clearControlAggregation": false,
-					"viewName": "ListBaseMain",
-					"viewId": "listBaseMain",
-					"viewLevel": 3,
+					"viewName": "SamplePage",
+					"viewId": "samplePage",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"
+				},
+				"homePage": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "HomePage",
+					"viewId": "homePage",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"
+				},
+				"studyPage": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "StudyPage",
+					"viewId": "studyPage",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"
+				},
+				"studyMenu": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "StudyMenu",
+					"viewId": "studyMenu",
+					"viewLevel": 1,
+					"controlAggregation": "masterPages"
+				},
+				"listExample": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "ListExample",
+					"viewId": "listExample",
+					"viewLevel": 2,
+					"controlAggregation": "detailPages",
 					"viewPath": "sap.ui.study.git.view.list"
 				},
-				"layout": {
+				"tableExample": {
 					"viewType": "XML",
 					"transition": "show",
 					"clearControlAggregation": false,
-					"viewName": "LayoutMain",
-					"viewId": "layoutMain",
+					"viewName": "TableExample",
+					"viewId": "tableExample",
+					"viewLevel": 3,
+					"controlId": "navContainer",
+					"controlAggregation": "pages",
+					"viewPath": "sap.ui.study.git.view.list",
+					"parent": "detailHeader"
+				},
+				"blockLayoutExample": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "BlockLayoutExample",
+					"viewId": "blockLayoutExample",
+					"viewLevel": 2,
+					"controlAggregation": "detailPages",
+					"viewPath": "sap.ui.study.git.view.layout"
+				},
+				"formExample": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "FormExample",
+					"viewId": "formExample",
+					"viewLevel": 2,
+					"controlAggregation": "detailPages",
+					"viewPath": "sap.ui.study.git.view.layout"
+				},
+				"gridExample": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": "",
+					"viewName": "GridExample",
+					"viewId": "gridExample",
+					"viewLevel": 2,
+					"controlAggregation": "detailPages",
+					"viewPath": "sap.ui.study.git.view.layout"
+				},
+				"responsiveSplitterExample": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": "",
+					"viewName": "ResponsiveSplitterExample",
+					"viewId": "responsiveSplitterExample",
+					"viewLevel": 2,
+					"controlAggregation": "detailPages",
+					"viewPath": "sap.ui.study.git.view.layout"
+				},
+				"detailHeader": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "DetailHeader",
+					"viewId": "detailHeader",
+					"viewLevel": 2,
+					"controlAggregation": "detailPages"
+				},
+				"tableCodeEditor": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "TableCodeEditor",
+					"viewId": "tableCodeEditor",
+					"viewLevel": 4,
+					"controlAggregation": "pages",
+					"controlId": "navContainer",
+					"viewPath": "sap.ui.study.git.view.list",
+					"parent": "detailHeader"
+				},
+				"panelOne": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": true,
+					"viewName": "FlexBox",
+					"viewId": "flexBox",
+					"viewLevel": 3,
+					"controlAggregation": "content",
+					"controlId": "panelOne",
 					"viewPath": "sap.ui.study.git.view.layout",
-					"viewLevel": 3
+					"parent": "responsiveSplitterExample"
+				},
+				"panelTwo": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": true,
+					"viewName": "FormExample",
+					"viewId": "formforSplitterExample",
+					"viewLevel": 3,
+					"controlAggregation": "content",
+					"controlId": "panelTwo",
+					"viewPath": "sap.ui.study.git.view.layout",
+					"parent": "responsiveSplitterExample"
+				},
+				"panelThree": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": true,
+					"viewName": "ListExample",
+					"viewPath": "sap.ui.study.git.view.list",
+					"controlId": "panelThree",
+					"controlAggregation": "content",
+					"viewLevel": 3,
+					"viewId": "listExample",
+					"parent": "responsiveSplitterExample"
 				}
 			}
 		},
