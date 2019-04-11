@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+<core:mvc.View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
 	controllerName="sap.ui.study.git.controller.list.TableExample" xmlns:html="http://www.w3.org/1999/xhtml">
 	<l:VerticalLayout width="100%" class="sapUiResponsiveContentPadding">
 		<l:content>
@@ -7,40 +7,28 @@
 					<l:VerticalLayout class="sapUiResponsiveContentPadding">
 						<l:content>
 							<Label text="{i18n>EmployeesLastName}"></Label>
-							<SearchField liveChange="onSearch" placeholder="{i18n>EmployeesLastName}">
-								<customData>
-									<core:CustomData value="LastName"></core:CustomData>
-								</customData>
+							<SearchField liveChange="onSearch($event,'LastName')" placeholder="{i18n>EmployeesLastName}">
 							</SearchField>
 						</l:content>	
 					</l:VerticalLayout>
 					<l:VerticalLayout class="sapUiResponsiveContentPadding">
 						<l:content>
 							<Label text="{i18n>EmployeesFirstName}"></Label>
-							<SearchField liveChange="onSearch" placeholder="{i18n>EmployeesFirstName}">
-								<customData>
-									<core:CustomData value="FirstName"></core:CustomData>
-								</customData>
+							<SearchField liveChange="onSearch($event,'FirstName')" placeholder="{i18n>EmployeesFirstName}">
 							</SearchField>
 						</l:content>	
 					</l:VerticalLayout>
 					<l:VerticalLayout class="sapUiResponsiveContentPadding">
 						<l:content>
 							<Label text="{i18n>EmployeesCity}"></Label>
-							<SearchField liveChange="onSearch" placeholder="{i18n>EmployeesCity}">
-								<customData>
-									<core:CustomData value="City"></core:CustomData>
-								</customData>
+							<SearchField liveChange="onSearch($event,'City')" placeholder="{i18n>EmployeesCity}">
 							</SearchField>
 						</l:content>	
 					</l:VerticalLayout>
 					<l:VerticalLayout class="sapUiResponsiveContentPadding">
 						<l:content>
 							<Label text="{i18n>EmployeesHomePhone}"></Label>
-							<SearchField liveChange="onSearch" placeholder="{i18n>EmployeesHomePhone}">
-								<customData>
-									<core:CustomData value="HomePhone"></core:CustomData>
-								</customData>
+							<SearchField liveChange="onSearch($event,'HomePhone')" placeholder="{i18n>EmployeesHomePhone}">
 							</SearchField>
 						</l:content>	
 					</l:VerticalLayout>
@@ -82,4 +70,4 @@
 			</l:HorizontalLayout>
 		</l:content>
 	</l:VerticalLayout>
-</mvc:View>
+</core:mvc.View>

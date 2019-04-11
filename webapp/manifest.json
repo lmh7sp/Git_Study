@@ -63,6 +63,12 @@
 				"settings": {},
 				"uri": "models/studyMenu.json",
 				"preload": false
+			},
+			"codeModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "models/codeModel.json",
+				"preload": true
 			}
 		},
 		"routing": {
@@ -74,7 +80,7 @@
 				"controlAggregation": "detailPages",
 				"transition": "flip",
 				"bypassed": {
-					"target": "notFound"
+					"target": ["notFound"]
 				},
 				"async": true,
 				"viewLevel": 1
@@ -103,12 +109,6 @@
 				"titleTarget": "",
 				"greedy": false,
 				"target": ["sampleMenu", "tableExample"]
-			}, {
-				"name": "tableCodeEditor",
-				"pattern": "sample/listbase/tablecode",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["tableCodeEditor", "sampleMenu"]
 			}, {
 				"name": "blockLayoutExample",
 				"pattern": "sample/layout/block_layout",
@@ -196,17 +196,19 @@
 				"listExample": {
 					"viewType": "XML",
 					"transition": "show",
-					"clearControlAggregation": false,
+					"clearControlAggregation": true,
 					"viewName": "ListExample",
 					"viewId": "listExample",
-					"viewLevel": 2,
-					"controlAggregation": "detailPages",
-					"viewPath": "sap.ui.study.git.view.list"
+					"viewLevel": 3,
+					"controlAggregation": "pages",
+					"viewPath": "sap.ui.study.git.view.list",
+					"controlId": "navContainer",
+					"parent": "detailHeader"
 				},
 				"tableExample": {
 					"viewType": "XML",
 					"transition": "show",
-					"clearControlAggregation": false,
+					"clearControlAggregation": true,
 					"viewName": "TableExample",
 					"viewId": "tableExample",
 					"viewLevel": 3,
@@ -218,32 +220,38 @@
 				"blockLayoutExample": {
 					"viewType": "XML",
 					"transition": "show",
-					"clearControlAggregation": false,
+					"clearControlAggregation": true,
 					"viewName": "BlockLayoutExample",
 					"viewId": "blockLayoutExample",
-					"viewLevel": 2,
-					"controlAggregation": "detailPages",
-					"viewPath": "sap.ui.study.git.view.layout"
+					"viewLevel": 3,
+					"controlAggregation": "pages",
+					"viewPath": "sap.ui.study.git.view.layout",
+					"controlId": "navContainer",
+					"parent": "detailHeader"
 				},
 				"formExample": {
 					"viewType": "XML",
 					"transition": "show",
-					"clearControlAggregation": false,
+					"clearControlAggregation": true,
 					"viewName": "FormExample",
 					"viewId": "formExample",
-					"viewLevel": 2,
-					"controlAggregation": "detailPages",
-					"viewPath": "sap.ui.study.git.view.layout"
+					"viewLevel": 3,
+					"controlAggregation": "pages",
+					"viewPath": "sap.ui.study.git.view.layout",
+					"controlId": "navContainer",
+					"parent": "detailHeader"
 				},
 				"gridExample": {
 					"viewType": "XML",
 					"transition": "show",
-					"clearControlAggregation": "",
+					"clearControlAggregation": true,
 					"viewName": "GridExample",
 					"viewId": "gridExample",
-					"viewLevel": 2,
-					"controlAggregation": "detailPages",
-					"viewPath": "sap.ui.study.git.view.layout"
+					"viewLevel": 3,
+					"controlAggregation": "pages",
+					"viewPath": "sap.ui.study.git.view.layout",
+					"parent": "detailHeader",
+					"controlId": "navContainer"
 				},
 				"responsiveSplitterExample": {
 					"viewType": "XML",
@@ -264,18 +272,6 @@
 					"viewLevel": 2,
 					"controlAggregation": "detailPages"
 				},
-				"tableCodeEditor": {
-					"viewType": "XML",
-					"transition": "show",
-					"clearControlAggregation": false,
-					"viewName": "TableCodeEditor",
-					"viewId": "tableCodeEditor",
-					"viewLevel": 4,
-					"controlAggregation": "pages",
-					"controlId": "navContainer",
-					"viewPath": "sap.ui.study.git.view.list",
-					"parent": "detailHeader"
-				},
 				"panelOne": {
 					"viewType": "XML",
 					"transition": "slide",
@@ -292,7 +288,7 @@
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": true,
-					"viewName": "FormExample",
+					"viewName": "FormForSplitterExample",
 					"viewId": "formforSplitterExample",
 					"viewLevel": 3,
 					"controlAggregation": "content",
@@ -311,6 +307,17 @@
 					"viewLevel": 3,
 					"viewId": "listExample",
 					"parent": "responsiveSplitterExample"
+				},
+				"codeEditor": {
+					"viewType": "XML",
+					"transition": "flip",
+					"clearControlAggregation": false,
+					"viewName": "CodeEditor",
+					"viewId": "codeEditor",
+					"viewLevel": 5,
+					"controlAggregation": "pages",
+					"controlId": "navContainer",
+					"parent": "detailHeader"
 				}
 			}
 		},

@@ -7,8 +7,8 @@
 	displayBlock="true">
 	<Shell appWidthLimited="false">
 		<App>
-			<tnt:ToolPage id="listBaseMain">
-				<tnt:header>
+			<Page>
+				<customHeader>
 					<tnt:ToolHeader>
 						<Button icon="sap-icon://menu" type="Transparent" press=".onPressMenu">
 							<layoutData>
@@ -45,16 +45,12 @@
 						</Title>
 						<ToolbarSpacer/>
 					</tnt:ToolHeader>
-				</tnt:header>
-				<tnt:mainContents>
+				</customHeader>
+				<content>
 					<SplitContainer id="container" mode="HideMode">
-						<masterPages>
-						</masterPages>
-						<detailPages>
-						</detailPages>
 					</SplitContainer>
-				</tnt:mainContents>
-			</tnt:ToolPage>
+				</content>
+			</Page>
 		</App>
 	</Shell>
 </mvc:View>
