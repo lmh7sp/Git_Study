@@ -55,6 +55,9 @@
 						</columns>
 						<items>
 							<ColumnListItem type="Navigation">
+								<customData>
+									<core:CustomData key="EmployeeId" value="{EmployeeID}"></core:CustomData>
+								</customData>
 								<cells>
 									<Text
 										text="{LastName}" />

@@ -18,7 +18,18 @@
 					"localUri": "localService/metadata.xml",
 					"annotations": []
 				}
+			},
+			"Northwind.svc": {
+				"uri": "/Northwind/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/Northwind.svc/metadata.xml"
+				}
 			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
 		}
 	},
 	"sap.ui": {
@@ -69,9 +80,15 @@
 				"preload": true
 			},
 			"": {
-				"settings": {},
-				"dataSource": "employeeRemote",
-				"preload": false
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": false
+				},
+				"dataSource": "Northwind.svc",
+				"preload": true
 			},
 			"targetModel": {
 				"type": "sap.ui.model.json.JSONModel",

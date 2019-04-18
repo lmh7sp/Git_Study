@@ -61,9 +61,9 @@ sap.ui.define([
 		},
 		onPressTableItem: function(event){
 			var oItem = event.getParameters().listItem;
-			var oENum = oItem.getParent().indexOfItem(oItem);
+			var oENum = oItem.getCustomData()[0].getValue();//.getParent().indexOfItem(oItem);
 			this.getRouter().navTo("routePara", {
-				employeeNum : oENum
+				employeeNum : String(Number(oENum)-1)
 			});
 		}
 	});
