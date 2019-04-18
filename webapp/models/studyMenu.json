@@ -1,31 +1,43 @@
  [
 	{
-		"text": "JQuery",
-		"ref": "sap-icon://attachment-audio",
+		"text": "Routing",
+		"ref": "sap-icon://customer-financial-fact-sheet",
 		"type": "Inactive",
-		"goTo":"",
+		"goTo": "",
 		"nodes":
 		[
 			{
-				"text": "몰라",
+				"text": "routingEvent",
 				"ref": "sap-icon://create",
-				"type": "Inactive",
-				"goTo":"ListExample"
+				"type": "Active",
+				"goTo": "routingEvent"
+			},
+			{
+				"text": "routeWithPara",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo": "routeWithPara"
+			},
+			{
+				"text": "routeGreedy",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo": "routeGreedy"
 			}
 		]
 	},
 	{
-		"text": "SAPUI5",
+		"text": "Binding",
 		"ref": "sap-icon://customer-financial-fact-sheet",
 		"type": "Inactive",
-		"goTo":"",
+		"goTo": "",
 		"nodes":
 		[
 			{
-				"text": "Sample",
+				"text": "tableBinding",
 				"ref": "sap-icon://create",
 				"type": "Active",
-				"goTo":"samplePage"
+				"goTo": "tableBinding"
 			}
 		]
 	}

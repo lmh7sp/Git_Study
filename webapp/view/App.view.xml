@@ -7,8 +7,8 @@
 	displayBlock="true">
 	<Shell appWidthLimited="false">
 		<App>
-			<tnt:ToolPage id="listBaseMain">
-				<tnt:header>
+			<Page>
+				<customHeader>
 					<tnt:ToolHeader>
 						<Button icon="sap-icon://menu" type="Transparent" press=".onPressMenu">
 							<layoutData>
@@ -38,23 +38,22 @@
 						<ToolbarSpacer/>
 						<core:Icon src="sap-icon://activate">
 						</core:Icon>
-						<Title text="제목" wrapping="false">
+						<Title text="제목" wrapping="false" id="title">
 							<layoutData>
 								<OverflowToolbarLayoutData priority="Low" />
 							</layoutData>
 						</Title>
 						<ToolbarSpacer/>
 					</tnt:ToolHeader>
-				</tnt:header>
-				<tnt:mainContents>
+				</customHeader>
+				<content>
 					<SplitContainer id="container" mode="HideMode">
-						<masterPages>
-						</masterPages>
 						<detailPages>
+							<Text text="detail"></Text>
 						</detailPages>
 					</SplitContainer>
-				</tnt:mainContents>
-			</tnt:ToolPage>
+				</content>
+			</Page>
 		</App>
 	</Shell>
 </mvc:View>

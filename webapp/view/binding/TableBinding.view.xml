@@ -1,5 +1,5 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
-	controllerName="sap.ui.study.git.controller.list.TableExample" xmlns:html="http://www.w3.org/1999/xhtml">
+	controllerName="sap.ui.study.git.controller.binding.TableBinding" xmlns:html="http://www.w3.org/1999/xhtml">
 	<l:VerticalLayout width="100%" class="sapUiResponsiveContentPadding">
 		<l:content>
 			<l:HorizontalLayout>
@@ -21,8 +21,10 @@
 					<l:VerticalLayout class="sapUiResponsiveContentPadding">
 						<l:content>
 							<Label text="{i18n>EmployeesCity}"></Label>
-							<SearchField liveChange="onSearch($event,'City')" placeholder="{i18n>EmployeesCity}">
-							</SearchField>
+							<ComboBox id="myCombo" change="onSearch($event,'City')" placeholder="{i18n>EmployeesCity}">
+								<items>
+								</items>
+							</ComboBox>
 						</l:content>	
 					</l:VerticalLayout>
 					<l:VerticalLayout class="sapUiResponsiveContentPadding">
@@ -36,7 +38,7 @@
 			</l:HorizontalLayout>
 			<l:HorizontalLayout>
 				<l:content>
-					<Table id="tableExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}">
+					<Table id="tableExample" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}" mode="SingleSelectMaster" itemPress="onPressTableItem">
 						<columns>
 							<Column>
 								<Text text="{i18n>EmployeesLastName}" />
@@ -52,7 +54,7 @@
 							</Column>
 						</columns>
 						<items>
-							<ColumnListItem>
+							<ColumnListItem type="Navigation">
 								<cells>
 									<Text
 										text="{LastName}" />

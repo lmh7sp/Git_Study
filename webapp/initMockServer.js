@@ -4,6 +4,7 @@ sap.ui.define([
 ], function (mockserver, MessageBox) {
 	"use strict";
 
+	
 	// initialize the mock server
 	mockserver.init().catch(function (oError) {
 		MessageBox.error(oError.message);

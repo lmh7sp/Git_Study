@@ -10,9 +10,22 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf sap.ui.study.git.table.view.Table_example
 		 */
+		
 		onInit: function () {
-
-		},
+		// 	var oRouter = this.getRouter();
+		// 	oRouter.getRoute("responsiveSplitterExample").attachBeforeMatched(this._onBeforeMatched, this);
+		// 	oRouter.getRoute("responsiveSplitterExample").attachMatched(this._onRouteMatched, this);
+		// 	oRouter.getRoute("responsiveSplitterExample").attachPatternMatched(this._onPatternMatched, this);
+		// },
+		// _onBeforeMatched: function(){
+		// 	// this._messageValue = "this is Before Matched";
+		// },
+		// _onPatternMatched: function(){
+		// 	sap.m.MessageToast.show(this._messageValue);
+		// },
+		// _onRouteMatched: function(){
+		// 	this._messageValue = "yoyo";
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

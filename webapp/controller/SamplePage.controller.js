@@ -5,6 +5,8 @@ sap.ui.define([
 
 	return BaseController.extend("sap.ui.study.git.controller.SamplePage", {
 	
+		onInit: function () {
+		}
 	});
 
 });

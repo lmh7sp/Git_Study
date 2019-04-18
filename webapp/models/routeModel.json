@@ -1,0 +1,91 @@
+[{
+	"name": "homePage",
+	"pattern": "",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["homePage"]
+}, {
+	"name": "samplePage",
+	"pattern": "sample",
+	"greedy": false,
+	"target": ["samplePage", "sampleMenu"]
+}, {
+	"name": "listExample",
+	"pattern": "sample/listbase/list",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["listExample", "sampleMenu"]
+}, {
+	"name": "tableExample",
+	"pattern": "sample/listbase/table",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["sampleMenu", "tableExample"]
+}, {
+	"name": "blockLayoutExample",
+	"pattern": "sample/layout/block_layout",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["blockLayoutExample", "sampleMenu"]
+}, {
+	"name": "formExample",
+	"pattern": "sample/layout/form",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["formExample", "sampleMenu"]
+}, {
+	"name": "gridExample",
+	"pattern": "sample/layout/grid",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["gridExample", "sampleMenu"]
+}, {
+	"name": "responsiveSplitterExample",
+	"pattern": "sample/layout/responsive_splitter",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["sampleMenu", "panelOne", "panelTwo", "panelThree"]
+}, {
+	"name": "studyPage",
+	"pattern": "study",
+	"greedy": false,
+	"target": ["studyMenu", "studyPage"],
+	"titleTarget": "studyPage"
+
+}, {
+	"name": "routingEvent",
+	"pattern": "study/routing/Event",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["studyMenu","routingEvent"]
+}, {
+	"name": "routeWithPara",
+	"pattern": "study/routing/Parameter",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["studyMenu","routeWithPara"]
+}, {
+	"name": "routePara",
+	"pattern": "study/routing/Parameter/{employeeNum}",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["studyMenu","routePara"]
+}, {
+	"name": "routeGreedEvent",
+	"pattern": "study/routing/routeGreedy/eventmatch/:detail*:",
+	"titleTarget": "",
+	"greedy": true,
+	"target": ["studyMenu","routeGreedEvent"]
+}, {
+	"name": "routeGreedy",
+	"pattern": "study/routing/routeGreedy/:detail*:",
+	"titleTarget": "",
+	"greedy": true,
+	"target": ["studyMenu","routeGreedy"]
+}, {
+	"name": "tableBinding",
+	"pattern": "study/binding/tableBinding",
+	"titleTarget": "",
+	"greedy": true,
+	"target": ["studyMenu","tableBinding"]
+}]

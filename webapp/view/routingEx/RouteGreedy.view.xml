@@ -1,0 +1,15 @@
+<mvc:View
+	controllerName="sap.ui.study.git.controller.routingEx.RouteGreedy"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout">
+	<Page showHeader="false" class="sapUiResponsiveContentPadding">
+		<VBox alignContent="Center" alignItems="Center">
+			<HBox alignContent="Center" alignItems="Center">
+				<Input placeholder="뒤에 추가할 Has값 입력" id="myInput"></Input>
+				<Button text="send" press="onPressHashChange"></Button>
+			</HBox>
+			<Text id="myText" text="최초"></Text>
+		</VBox>
+	</Page>
+</mvc:View>

@@ -1,9 +1,8 @@
 <mvc:View
-	controllerName="sap.ui.study.git.controller.list.TableCodeEditor"
+	controllerName="sap.ui.study.git.controller.CodeEditor"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:ce="sap.ui.codeeditor"
-	displayBlock="true">
+	xmlns:ce="sap.ui.codeeditor">
 	<IconTabHeader id="iconTabHeader"
 		selectedKey="invalidKey"
 		select="onSelectCode">
