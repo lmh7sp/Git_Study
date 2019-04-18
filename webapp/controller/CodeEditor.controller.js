@@ -7,9 +7,10 @@ sap.ui.define([
 	return BaseController.extend("sap.ui.study.git.controller.CodeEditor", {
 
 		onInit: function () {
-			var oRouter;
+			var oRouter, oTarget;
 			oRouter = this.getRouter();
-			oRouter.getTarget("codeEditor").attachDisplay(function(oEvent){
+			oTarget = oRouter.getTarget("codeEditor");
+			oTarget.attachDisplay(function(oEvent){
 				this._Data = oEvent.getParameter("data");
 			},this);
 			this._Editor = this.byId("codeEditor");
