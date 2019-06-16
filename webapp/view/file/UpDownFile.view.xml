@@ -1,0 +1,12 @@
+<mvc:View 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:up="sap.m.upload"
+	controllerName="sap.ui.study.git.controller.file.UpDownFile" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false">
+		<up:UploadSet
+			id="upLoadSet">
+			
+		</up:UploadSet>
+	</Page>
+</mvc:View>

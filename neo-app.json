@@ -2,14 +2,6 @@
   "welcomeFile": "index.html",
   "routes": [
     {
-      "path": "/Northwind",
-      "target": {
-        "type": "destination",
-        "name": "Northwind"
-      },
-      "description": "Northwind OData sevices"
-    },
-    {
       "path": "/resources",
       "target": {
         "type": "service",
@@ -26,6 +18,14 @@
         "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/ODATA",
+      "target": {
+        "type": "destination",
+        "name": "HCP_odatav2"
+      },
+      "description": "SAP Cloud App Odata v2"
     }
   ]
 }

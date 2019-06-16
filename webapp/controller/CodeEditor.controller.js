@@ -19,7 +19,7 @@ sap.ui.define([
 			this.getView().addEventDelegate({
 				onBeforeShow: jQuery.proxy(function(evt){this.putCodes(evt);},this)
 			});
-
+			
 		},
 		putCodes: function(){
 			var oIconTabHeader = this.getView().byId("iconTabHeader"),
