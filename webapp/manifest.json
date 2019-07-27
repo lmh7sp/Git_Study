@@ -20,7 +20,7 @@
 				}
 			},
 			"mainService": {
-				"uri": "/ODATA/App_OData/OData/Employee.xsodata/",
+				"uri": "/ODATA/App_OData/OData/Employee.xsodata",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
