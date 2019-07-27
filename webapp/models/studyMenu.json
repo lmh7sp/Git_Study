@@ -1,43 +1,47 @@
  [
+	
 	{
-		"text": "Routing",
-		"ref": "sap-icon://customer-financial-fact-sheet",
+		"text": "SKEOM",
+		"ref": "sap-icon://attachment-audio",
 		"type": "Inactive",
-		"goTo": "",
+		"goTo":"",
 		"nodes":
 		[
 			{
-				"text": "routingEvent",
+				"text": "SKEOM",
 				"ref": "sap-icon://create",
 				"type": "Active",
-				"goTo": "routingEvent"
-			},
-			{
-				"text": "routeWithPara",
-				"ref": "sap-icon://create",
-				"type": "Active",
-				"goTo": "routeWithPara"
-			},
-			{
-				"text": "routeGreedy",
-				"ref": "sap-icon://create",
-				"type": "Active",
-				"goTo": "routeGreedy"
+				"goTo":"skeom"
 			}
 		]
 	},
 	{
-		"text": "Binding",
-		"ref": "sap-icon://customer-financial-fact-sheet",
+		"text": "CHOH",
+		"ref": "sap-icon://attachment-audio",
 		"type": "Inactive",
-		"goTo": "",
+		"goTo":"",
 		"nodes":
 		[
 			{
-				"text": "tableBinding",
+				"text": "CHOH",
 				"ref": "sap-icon://create",
 				"type": "Active",
-				"goTo": "tableBinding"
+				"goTo":"choh"
+			}
+		]
+	},
+	{
+		"text": "AJPYUN",
+		"ref": "sap-icon://attachment-audio",
+		"type": "Inactive",
+		"goTo":"",
+		"nodes":
+		[
+			{
+				"text": "AJPYUN",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"ajpyun"
 			}
 		]
 	}

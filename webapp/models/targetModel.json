@@ -161,81 +161,38 @@
 		"viewId": "listExample",
 		"parent": "responsiveSplitterExample"
 	},
-	"routingEvent": {
-		"controlId":"container-nav---app--container",
+	"skeom": {
 		"viewType": "XML",
-		"transition": "flip",
+		"title": "Sample Main Page",
+		"transition": "show",
 		"clearControlAggregation": false,
-		"viewName": "RoutingEvent",
-		"viewId": "routingEvent",
-		"viewLevel": 2,
+		"viewName": "Skeom",
+		"viewId": "skeom",
+		"viewLevel": 1,
 		"controlAggregation": "detailPages",
-		"viewPath": "sap.ui.study.git.view.routingEx"
+		"controlId":"container-nav---app--container",
+		"viewPath": "sap.ui.study.git.view.workPlace.Skeom"
 	},
-	"routeWithPara": {
+	"choh": {
 		"controlId":"container-nav---app--container",
 		"viewType": "XML",
 		"transition": "flip",
 		"clearControlAggregation": false,
-		"viewName": "RouteWithPara",
-		"viewId": "routeWithPara",
+		"viewName": "Choh",
+		"viewId": "choh",
 		"viewLevel": 2,
 		"controlAggregation": "detailPages",
-		"viewPath": "sap.ui.study.git.view.routingEx"
+		"viewPath": "sap.ui.study.git.view.workPlace.Choh"
 	},
-	"routePara": {
+	"ajpyun": {
 		"controlId":"container-nav---app--container",
 		"viewType": "XML",
 		"transition": "flip",
 		"clearControlAggregation": false,
-		"viewName": "RoutePara",
-		"viewId": "routePara",
+		"viewName": "Ajpyun",
+		"viewId": "ajpyun",
 		"viewLevel": 2,
 		"controlAggregation": "detailPages",
-		"viewPath": "sap.ui.study.git.view.routingEx"
-	},
-	"routeGreedEvent": {
-		"controlId":"container-nav---app--container",
-		"viewType": "XML",
-		"transition": "flip",
-		"clearControlAggregation": false,
-		"viewName": "RouteGreedEvent",
-		"viewId": "routeGreedEvent",
-		"viewLevel": 2,
-		"controlAggregation": "detailPages",
-		"viewPath": "sap.ui.study.git.view.routingEx"
-	},
-	"routeGreedy": {
-		"controlId":"container-nav---app--container",
-		"viewType": "XML",
-		"transition": "flip",
-		"clearControlAggregation": false,
-		"viewName": "RouteGreedy",
-		"viewId": "routeGreedy",
-		"viewLevel": 2,
-		"controlAggregation": "detailPages",
-		"viewPath": "sap.ui.study.git.view.routingEx"
-	},
-	"routeParentRoute": {
-		"controlId":"container-nav---app--container",
-		"viewType": "XML",
-		"transition": "flip",
-		"clearControlAggregation": false,
-		"viewName": "RouteParentRoute",
-		"viewId": "routeParentRoute",
-		"viewLevel": 2,
-		"controlAggregation": "detailPages",
-		"viewPath": "sap.ui.study.git.view.routingEx"
-	},
-	"tableBinding": {
-		"controlId":"container-nav---app--container",
-		"viewType": "XML",
-		"transition": "flip",
-		"clearControlAggregation": false,
-		"viewName": "TableBinding",
-		"viewId": "tableBinding",
-		"viewLevel": 2,
-		"controlAggregation": "detailPages",
-		"viewPath": "sap.ui.study.git.view.binding"
+		"viewPath": "sap.ui.study.git.view.workPlace.Ajpyun"
 	}
 }

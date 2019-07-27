@@ -53,39 +53,21 @@
 	"titleTarget": "studyPage"
 
 }, {
-	"name": "routingEvent",
-	"pattern": "study/routing/Event",
+	"name": "skeom",
+	"pattern": "study/Skeom/Skeom",
 	"titleTarget": "",
 	"greedy": false,
-	"target": ["studyMenu","routingEvent"]
+	"target": ["studyMenu","skeom"]
 }, {
-	"name": "routeWithPara",
-	"pattern": "study/routing/Parameter",
+	"name": "choh",
+	"pattern": "study/Choh/Choh",
 	"titleTarget": "",
 	"greedy": false,
-	"target": ["studyMenu","routeWithPara"]
+	"target": ["studyMenu","choh"]
 }, {
-	"name": "routePara",
-	"pattern": "study/routing/Parameter/{employeeNum}",
+	"name": "ajpyun",
+	"pattern": "study/Ajpyun/Ajpyun",
 	"titleTarget": "",
 	"greedy": false,
-	"target": ["studyMenu","routePara"]
-}, {
-	"name": "routeGreedEvent",
-	"pattern": "study/routing/routeGreedy/eventmatch/:detail*:",
-	"titleTarget": "",
-	"greedy": true,
-	"target": ["studyMenu","routeGreedEvent"]
-}, {
-	"name": "routeGreedy",
-	"pattern": "study/routing/routeGreedy/:detail*:",
-	"titleTarget": "",
-	"greedy": true,
-	"target": ["studyMenu","routeGreedy"]
-}, {
-	"name": "tableBinding",
-	"pattern": "study/binding/tableBinding",
-	"titleTarget": "",
-	"greedy": true,
-	"target": ["studyMenu","tableBinding"]
+	"target": ["studyMenu","ajpyun"]
 }]
