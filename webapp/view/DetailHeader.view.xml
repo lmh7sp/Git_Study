@@ -10,10 +10,6 @@
 				<contentMiddle>
 					<Title id="myTitle"></Title>
 				</contentMiddle>
-				<contentRight>
-					<Button icon="sap-icon://syntax" press="goCode">
-					</Button>
-				</contentRight>
 			</Bar>
 		</subHeader>
 		<content>
