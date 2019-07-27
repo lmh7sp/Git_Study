@@ -12,9 +12,6 @@
 				</contentMiddle>
 				<contentRight>
 					<Button icon="sap-icon://syntax" press="goCode">
-						<customData>
-							<core:CustomData key="code" value="TableExample"></core:CustomData>
-						</customData>
 					</Button>
 				</contentRight>
 			</Bar>

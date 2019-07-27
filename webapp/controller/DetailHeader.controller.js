@@ -8,6 +8,12 @@ sap.ui.define([
 
 		onInit: function () {
 
+			this.getView().addEventDelegate({
+				onBeforeShow: jQuery.proxy(function(evt){this.beforeShow(evt);},this)
+			});
+		},
+		beforeShow: function(){
+			alert("oh,my");	
 		},
 		goCode: function(){
 			var oPage = this.getView().byId("navContainer").getCurrentPage(); 
@@ -17,7 +23,7 @@ sap.ui.define([
 				// this.getRouter().navTo("tableExample");
 				oHash.fireHashChanged(oHash.getHash(),oHash.getHash());
 			} else {
-				this.getRouter().getTargets().display("codeEditor",{
+				this.getRouter().getTarget("codeEditor").display({
 					prevPageName: sName
 				});
 			}

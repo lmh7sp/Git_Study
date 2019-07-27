@@ -20,6 +20,7 @@ sap.ui.define([
 			    document.title = sTitle;
 			    oTitle.setText(sTitle);
 			});
+			this.modelSetting();
 		},
 		_onRouteBeforeMatched: function(event){
 			if(event.getParameters().name === "routingEvent"){
@@ -52,6 +53,27 @@ sap.ui.define([
 					oContainer.setMode("HideMode");
 			}
 			
+		},
+		modelSetting: function(){
+			// var sModelUrl = "https://" + "hanamdcp2000580973trial.hanatrial.ondemand.com/App_OData/OData/company.xsodata/";
+			// var myOData = new sap.ui.model.odata.v2.ODataModel({
+			// 	serviceUrl:sModelUrl,
+			// 	user:"SYSTEM",
+			// 	password:"!Q2w3e4r5t6y7u8i9o0p",
+			// 	useBatch:false
+			// });
+			// try{
+			// 	myOData.read("/Employees",{
+			// 		success: function(oData, response){
+			// 			console.log("oData > ", oData)
+			// 		},
+			// 		error: function(oError){
+			// 			console.log("Error > ", oError)
+			// 		}
+			// 	});
+			// }catch(e){
+				
+			// }
 		}
 
 	});

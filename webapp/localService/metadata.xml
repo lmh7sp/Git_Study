@@ -3,7 +3,7 @@
 	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
 		<Schema Namespace="NavigationModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
 
-			<EntityType Name="Employee">
+			<EntityType Name="Employee_notUse">
 				<Key>
 					<PropertyRef Name="EmployeeID"/>
 				</Key>
@@ -33,12 +33,12 @@
 
 			<Association Name="NavigationModel.FK_Employees_Resumes">
 				<End Role="Resumes" Type="NavigationModel.Resume" Multiplicity="0..1"/>
-				<End Role="Employees" Type="NavigationModel.Employee" Multiplicity="1"/>
+				<End Role="Employees_notUse" Type="NavigationModel.Employee_notUse" Multiplicity="1"/>
 				<ReferentialConstraint>
 					<Dependent Role="Resumes">
 						<PropertyRef Name="ResumeID"/>
 					</Dependent>
-					<Principal Role="Employees">
+					<Principal Role="Employees_notUse">
 						<PropertyRef Name="ResumeID"/>
 					</Principal>
 				</ReferentialConstraint>
@@ -46,11 +46,11 @@
 
 			<EntityContainer Name="NavigationEntities" p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
 
-				<EntitySet Name="Employees" EntityType="NavigationModel.Employee"/>
+				<EntitySet Name="Employees_notUse" EntityType="NavigationModel.Employee_notUse"/>
 				<EntitySet Name="Resumes" EntityType="NavigationModel.Resume"/>
 
 				<AssociationSet Name="FK_Employees_Resumes" Association="NavigationModel.FK_Employees_Resumes">
-					<End EntitySet="Employees" Role="Employees"/>
+					<End EntitySet="Employees_notUse" Role="Employees_notUse"/>
 					<End EntitySet="Resumes" Role="Resumes"/>
 				</AssociationSet>
 

@@ -17,10 +17,12 @@ sap.ui.define([
 			for(i in this.targetInfo){
 				this.getTargets().addTarget(i,this.targetInfo[i]);
 			}
-			i=null;
+			i = null;
 			for(i in this.routeInfo){
 				this.addRoute(this.routeInfo[i]);
 			}
+			this.routeInfo = null;
+			this.targetInfo = null;
 		},
 	
 		myNavBack : function(sRoute, mData) {

@@ -1,0 +1,34 @@
+{
+    "application": {
+        "id": "",
+        "title": "sap.ui.study.git.Git_Study",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/webapp",
+        "appUrl": "#Git_Study-Display",
+        "navigationComponentName": "sap.ui.study.git",
+        "intentSemanticObject": "Git_Study",
+        "intentAction": "Display",
+        "html5ApplicationName": "gitstudy",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "03af7a06-21e2-4d54-a9dd-23d0d70d30c3"
+        ],
+        "contentPackages": [
+            "cbb3ce7e-d384-4d72-ac03-bca70577a2a2"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "ProjectStudy",
+        "subtitle": "Subtitle",
+        "searchKeywords": "ProjectStudy,Subtitle",
+        "displayIconUrl": "sap-icon://to-be-reviewed",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

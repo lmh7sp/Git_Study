@@ -19,11 +19,12 @@
 					"annotations": []
 				}
 			},
-			"Northwind.svc": {
-				"uri": "/Northwind/V2/Northwind/Northwind.svc/",
+			"mainService": {
+				"uri": "/ODATA/App_OData/OData/Employee.xsodata",
 				"type": "OData",
 				"settings": {
-					"localUri": "localService/Northwind.svc/metadata.xml"
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
 				}
 			}
 		},
@@ -87,7 +88,7 @@
 					"defaultCountMode": "Request",
 					"useBatch": false
 				},
-				"dataSource": "Northwind.svc",
+				"dataSource": "mainService",
 				"preload": true
 			},
 			"targetModel": {
@@ -117,12 +118,24 @@
 				"controlAggregation": "detailPages",
 				"transition": "flip",
 				"bypassed": {
-					"target": ["notFound"]
+					"target": [
+						"notFound"
+					]
 				},
 				"async": true,
 				"viewLevel": 1
 			},
-			"routes": [],
+			"routes": [
+				{
+					"name": "codeEditor",
+					"pattern": "my/oh/my",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"codeEditor"
+					]
+				}
+			],
 			"targets": {
 				"notFound": {
 					"controlId": "container",
@@ -158,5 +171,9 @@
 			"cozy": false
 		},
 		"flexEnabled": true
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }
