@@ -70,4 +70,10 @@
 	"titleTarget": "",
 	"greedy": false,
 	"target": ["studyMenu","ajpyun"]
+}, {
+	"name": "SimpleSearchPage",
+	"pattern": "sample/June/SimpleSearchPage",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["sampleMenu", "SimpleSearchPage"]
 }]

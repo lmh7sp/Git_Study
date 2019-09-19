@@ -1,0 +1,323 @@
+<mvc:View 
+	controllerName="sap.ui.study.git.controller.June.SimpleSearchPage" 
+	displayBlock="true" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m" 
+	xmlns:core="sap.ui.core"
+	xmlns="sap.uxap" 
+	xmlns:l="sap.ui.layout"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:table="sap.ui.table"
+	xmlns:u="sap.ui.unified">
+		<m:Page showHeader="false">
+				<m:content>
+					<ObjectPageLayout id="ObjectPageLayout"
+							enableLazyLoading="true"
+							useIconTabBar="true"
+							showTitleInHeaderContent="false">
+						<headerTitle>
+							<ObjectPageDynamicHeaderTitle>
+								<expandedHeading>
+									<m:Title text="ObjectPageTitle expanded" wrapping="true" class="sapUiSmallMarginEnd"/>
+								</expandedHeading>
+		
+								<snappedHeading>
+									<m:Title text="ObjectPageTitle snapped" wrapping="true" class="sapUiTinyMarginEnd"/>
+								</snappedHeading>
+		
+							</ObjectPageDynamicHeaderTitle>
+						</headerTitle>
+		
+						<headerContent>
+							
+							<fb:FilterBar 
+								header="FilterTitle" 
+								reset="onReset" 
+								search="onSearch" 
+								showRestoreButton="true"
+								filterContainerWidth="250px"
+								showClearButton="true">
+								<fb:filterGroupItems>
+									
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="Product" label="Product" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<m:MultiInput 
+												id="mutiProduct" 
+												valueHelpRequest="onMultiValueHelpDialog($event, 'Product')"
+												showValueHelp="true" 
+												showSuggestion="true"
+												valueStateText="Not a valid value"
+												suggestionItems="{
+													path: 'Product>/YY1_ProductView',
+													sorter: { path: 'Product' },
+													parameters : {
+														select : 'Product,ProductName'
+													},
+													length : 1000
+												}">
+												<core:ListItem key="{Product>Product}" text="{Product>Product}" additionalText="{Product>ProductName}"/>
+											</m:MultiInput>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="ProductGroup" label="ProductGroup" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<m:MultiInput 
+												id="mutiProductGroup"
+												showValueHelp="true" 
+												valueHelpRequest="onMultiValueHelpDialog($event, 'ProductGroup')"
+												showSuggestion="true"
+												valueStateText="Not a valid value"
+												suggestionItems="{
+													path: 'ProductGroup>/YY1_ProductGroupView',
+													sorter: { path: 'MaterialGroup' },
+													parameters : {
+														select : 'MaterialGroup,MaterialGroupName'
+													},
+													length : 1000
+												}">
+												<core:ListItem key="{ProductGroup>MaterialGroup}" text="{ProductGroup>MaterialGroup}" additionalText="{ProductGroup>MaterialGroupName}"/>
+											</m:MultiInput>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="Supplier" label="Supplier" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<m:MultiInput 
+												id="mutiSupplier"
+												showValueHelp="true" 
+												valueHelpRequest="onMultiValueHelpDialog($event, 'Supplier')"
+												showSuggestion="true"
+												valueStateText="Not a valid value"
+												suggestionItems="{
+													path: 'BusinessPartner>/A_Supplier',
+													sorter: { path: 'Supplier' },
+													parameters : {
+														select : 'Supplier,SupplierName'
+													},
+													length : 1000
+												}">
+												<core:ListItem key="{BusinessPartner>Supplier}" text="{BusinessPartner>Supplier}" additionalText="{BusinessPartner>SupplierName}"/>
+											</m:MultiInput>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="Plant" label="Plant" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<m:MultiInput 
+												id="mutiPlant"
+												showValueHelp="true" 
+												valueHelpRequest="onMultiValueHelpDialog($event, 'Plant')"
+												showSuggestion="true"
+												valueStateText="Not a valid value"
+												suggestionItems="{
+													path: 'Plant>/A_Plant',
+													sorter: { path: 'Plant' },
+													parameters : {
+														select : 'Plant,PlantName'
+													},
+													length : 1000
+												}">
+												<core:ListItem key="{Plant>Plant}" text="{Plant>Plant}" additionalText="{Plant>PlantName}"/>
+											</m:MultiInput>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="InfoRecordCategory" label="InfoRecordCategory" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<m:MultiInput 
+												id="mutiRecordCat"
+												showValueHelp="true" 
+												valueHelpRequest="onMultiValueHelpDialog($event, 'InfoRecordCategory')"
+												showSuggestion="true"
+												valueStateText="Not a valid value"
+												suggestionItems="{
+													path: 'PurchasingCategory>/',
+													sorter: { path: 'Code' }
+												}">
+												<core:ListItem key="{PurchasingCategory>Code}" text="{PurchasingCategory>Code}" additionalText="{PurchasingCategory>Name}"/>
+											</m:MultiInput>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="PurchasingOrganization" label="PurchasingOrganization" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<m:MultiInput 
+												id="mutiPurOrg"
+												showValueHelp="true" 
+												valueHelpRequest="onMultiValueHelpDialog($event, 'PurchasingOrganization')"
+												showSuggestion="true"
+												valueStateText="Not a valid value"
+												suggestionItems="{
+													path: 'PurchaseOrg>/YY1_PurchasingOrg',
+													sorter: { path: 'PurchasingOrganization' },
+													parameters : {
+														select : 'PurchasingOrganization,PurchasingOrganizationName'
+													},
+													length : 1000
+												}">
+												<core:ListItem key="{PurchaseOrg>PurchasingOrganization}" text="{PurchaseOrg>PurchasingOrganization}" additionalText="{PurchaseOrg>PurchasingOrganizationName}"/>
+											</m:MultiInput>
+										</fb:control>
+									</fb:FilterGroupItem>
+								</fb:filterGroupItems>			 	
+										
+						    </fb:FilterBar>
+						</headerContent>
+						<sections>
+							
+							<ObjectPageSection> <!-- title="Info Records" -->
+								<subSections>
+									<ObjectPageSubSection>
+										<blocks>
+											<table:Table id="tableModel"
+												rows="{mainModel>/}"
+												selectionMode="MultiToggle"
+												selectionBehavior="Row"
+												minAutoRowCount="10"
+												class="sumTable"
+												visibleRowCountMode="Interactive"
+												ariaLabelledBy="title">
+												<table:extension>
+													<m:Toolbar>
+														<m:Title text="Total({layout>/itemLength})" />
+														<m:ToolbarSpacer/>
+														<m:Button type="Transparent" icon="sap-icon://action-settings" press="onPersoButtonPressed" />
+														<m:Button type="Transparent" icon="sap-icon://excel-attachment" press="onExport" />
+													</m:Toolbar>
+												</table:extension>
+												<table:columns>
+													<table:Column width="200px">
+														<m:Label text="PurchasingInfoRecord" />
+														<table:template>
+  															<m:Text text="{mainModel>PurchasingInfoRecord}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="Supplier" />
+														<table:template>
+  															<m:Text text="{mainModel>Supplier}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="SupplierName" />
+														<table:template>
+  															<m:Text text="{mainModel>SupplierName}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="PurchasingInfoRecordCategory" />
+														<table:template>
+  															<m:Text text="{mainModel>PurchasingInfoRecordCategor}"/>
+														</table:template>
+													</table:Column>
+													<!--<table:Column width="200px">-->
+													<!--	<m:Label text="PurchasingInfoRecordCategory Text" />-->
+													<!--	<table:template>-->
+  											<!--				<m:Text text="{mainModel>PurchasingInfoRecordCategoryText}"/>-->
+													<!--	</table:template>-->
+													<!--</table:Column>-->
+													<table:Column width="200px">
+														<m:Label text="Product" />
+														<table:template>
+  															<m:Text text="{mainModel>Material}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="ProductText" />
+														<table:template>
+  															<m:Text text="{mainModel>ProductDescription}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="Plant" />
+														<table:template>
+  															<m:Text text="{mainModel>Plant}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="PlantName" />
+														<table:template>
+  															<m:Text text="{mainModel>PlantName}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="ProductGroup" />
+														<table:template>
+  															<m:Text text="{mainModel>ProductGroup}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="ProductGroupName" />
+														<table:template>
+  															<m:Text text="{mainModel>ProductGroupName}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="NetPriceAmount" />
+														<table:template>
+  															<m:Text text="{mainModel>NetPriceAmount}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="ProductPriceUnitQty" />
+														<table:template>
+  															<m:Text text="{mainModel>MaterialPriceUnitQty}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="Currency" />
+														<table:template>
+  															<m:Text text="{mainModel>Currency}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="PriceValidityEndDate" />
+														<table:template>
+  															<m:Text text="{
+  																path: 'mainModel>PriceValidityEndDate',
+  														        type: 'sap.ui.model.odata.type.Date',
+  														        formatOptions: {
+  														        	pattern: 'yyyy.MM.dd'
+  														        }
+  														    }"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="InvoiceIsGoodsReceiptBased" />
+														<table:template>
+  															<m:Text text="{mainModel>InvoiceIsGoodsReceiptBased}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="TaxCode" />
+														<table:template>
+  															<m:Text text="{mainModel>TaxCode}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="PricingDateControl" />
+														<table:template>
+  															<m:Text text="{mainModel>PricingDateControl}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="LastReferencingPurchaseOrder" />
+														<table:template>
+  															<m:Text text="{mainModel>LastReferencingPurchaseOrder}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px">
+														<m:Label text="LastReferencingPurOrderItem" />
+														<table:template>
+  															<m:Text text="{mainModel>LastReferencingPurOrderItem}"/>
+														</table:template>
+													</table:Column>
+												</table:columns>
+											</table:Table>
+											
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+						</sections>
+					</ObjectPageLayout>
+				</m:content>
+			</m:Page>
+</mvc:View>

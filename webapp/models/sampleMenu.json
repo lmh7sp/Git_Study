@@ -52,5 +52,20 @@
 				"goTo":"responsiveSplitterExample"
 			}
 		]
+	},
+	{
+		"text": "June",
+		"ref": "sap-icon://attachment-audio",
+		"type": "Inactive",
+		"goTo":"",
+		"nodes":
+		[
+			{
+				"text": "SimpleSearchPage",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"SimpleSearchPage"
+			}
+		]
 	}
 ]

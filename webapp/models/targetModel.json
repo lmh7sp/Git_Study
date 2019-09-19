@@ -194,5 +194,17 @@
 		"viewLevel": 2,
 		"controlAggregation": "detailPages",
 		"viewPath": "sap.ui.study.git.view.workPlace.Ajpyun"
+	},
+	"SimpleSearchPage": {
+		"viewType": "XML",
+		"viewName": "SimpleSearchPage",
+		"clearControlAggregation": false,
+		"transition": "show",
+		"viewPath": "sap.ui.study.git.view.June",
+		"viewLevel": 3,
+		"viewId": "SimpleSearchPage",
+		"controlId": "navContainer",
+		"controlAggregation": "pages",
+		"parent": "detailHeader"
 	}
 }
