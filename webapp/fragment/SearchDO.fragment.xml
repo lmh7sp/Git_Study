@@ -1,0 +1,215 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:table="sap.ui.table"
+	xmlns:core="sap.ui.core">
+	<Dialog
+		id="SearchDO"
+		contentHeight="700px"
+		contentWidth="1250px"
+		draggable="true"
+		resizable="true"
+		title="{i18n>dialogSearchDOHeader}">
+		<content>
+			<fb:FilterBar id="SearchDOFilterBar" search="onSearchDO" showRestoreButton="true" showClearButton="true" useToolbar="false">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="SearchDO" name="ShipToParty" label="Ship-To Party" labelTooltip="ShipToParty" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<Input showValueHelp="true" valueHelpRequest="onOpenBPSearchDialog"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="SearchDO" name="PlannedGoodsIssueDate" label="Planned GI Date" labelTooltip="PlannedGoodsIssueDate" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<DateRangeSelection/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="SearchDO" name="DeliveryDocument" label="OutBound Delivery" labelTooltip="DeliveryDocument" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<Input/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>	
+		    </fb:FilterBar>
+		    <VBox>
+		    	<table:Table
+					id="ResultList"
+					selectionMode="MultiToggle"
+					rows="{
+						path:'ResultList>/',
+						filters: {path: 'Rank', operator: 'EQ', value1: '0'},
+						sorter : [{path:'DeliveryDocument'}]
+					}"
+					visibleRowCount="5">
+					<table:extension>
+						<Toolbar>
+							<Title text="ResultList" level="H2"/>
+							<ToolbarSeparator></ToolbarSeparator>
+							<ToolbarSpacer></ToolbarSpacer>
+							<Button text="Assign" press="onAssign" />
+						</Toolbar>
+					</table:extension>
+					<table:columns>
+						<table:Column width="140px" filterProperty="DeliveryDocument" sortProperty="DeliveryDocument">
+							<Label text="{i18n>tblDeliveryDocument}" />
+							<table:template>
+								<Text text="{ResultList>DeliveryDocument}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="105px" filterProperty="SoldToParty" sortProperty="SoldToParty">
+							<Label text="{i18n>tblSoldToParty}" />
+							<table:template>
+								<Text text="{ResultList>SoldToParty}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="300px" filterProperty="SoldToPartyName" sortProperty="SoldToPartyName">
+							<Label text="{i18n>tblSoldToPartyName}" />
+							<table:template>
+								<Text text="{ResultList>SoldToPartyName}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="105px" filterProperty="ShipToParty" sortProperty="ShipToParty">
+							<Label text="{i18n>tblShipToParty}" />
+							<table:template>
+								<Text text="{ResultList>ShipToParty}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="300px" filterProperty="ShipToPartyName" sortProperty="ShipToPartyName">
+							<Label text="{i18n>tblShipToPartyName}" />
+							<table:template>
+								<Text text="{ResultList>ShipToPartyName}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="125px" filterProperty="PlannedGoodsIssueDate" sortProperty="PlannedGoodsIssueDate">
+							<Label text="{i18n>tblPlannedGoodsIssueDate}" />
+							<table:template>
+								<Text text="{
+									path:'ResultList>PlannedGoodsIssueDate',
+			        				type: 'sap.ui.model.type.Date'
+								}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="125px" filterProperty="ActualGoodsMovementDate" sortProperty="ActualGoodsMovementDate">
+							<Label text="{i18n>tblActualGoodsIssueDate}" />
+							<table:template>
+								<Text text="{
+									path:'ResultList>ActualGoodsMovementDate',
+			        				type: 'sap.ui.model.type.Date'
+								}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="100px" filterProperty="YY1_SALES_DOCUMENT_DLH" sortProperty="YY1_SALES_DOCUMENT_DLH">
+							<Label text="{i18n>tblReferenceSDDocument}" />
+							<table:template>
+								<Text text="{ResultList>YY1_SALES_DOCUMENT_DLH}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="120px" filterProperty="YY1_H_CUSTPO_DLH" sortProperty="YY1_H_CUSTPO_DLH">
+							<Label text="{i18n>tblCustomerPO}" />
+							<table:template>
+								<Text text="{ResultList>YY1_H_CUSTPO_DLH}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="100px" filterProperty="IncotermsClassification" sortProperty="IncotermsClassification">
+							<Label text="{i18n>tblIncotermsClassification}" />
+							<table:template>
+								<Text text="{ResultList>IncotermsClassification}"/>
+							</table:template>
+						</table:Column>
+					</table:columns>
+				</table:Table>
+		    	<table:Table
+					id="AssignedList"
+					selectionMode="MultiToggle"
+					rows="{
+						path:'ResultList>/',
+						filters: {path: 'Rank', operator: 'GT', value1: '0'},
+						sorter : [{path:'DeliveryDocument'}, {path: 'Rank', descending: true}]
+					}"
+					visibleRowCount="5">
+					<table:extension>
+						<Toolbar>
+							<Title text="AssignedList" level="H2"/>
+							<ToolbarSeparator></ToolbarSeparator>
+							<ToolbarSpacer></ToolbarSpacer>
+							<Button text="Remove" press="onRemove" />
+						</Toolbar>
+					</table:extension>
+					<table:columns>
+						<table:Column width="140px" filterProperty="DeliveryDocument" sortProperty="DeliveryDocument">
+							<Label text="{i18n>tblDeliveryDocument}" />
+							<table:template>
+								<Text text="{ResultList>DeliveryDocument}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="105px" filterProperty="SoldToParty" sortProperty="SoldToParty">
+							<Label text="{i18n>tblSoldToParty}" />
+							<table:template>
+								<Text text="{ResultList>SoldToParty}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="145px" filterProperty="SoldToPartyName" sortProperty="SoldToPartyName">
+							<Label text="{i18n>tblSoldToPartyName}" />
+							<table:template>
+								<Text text="{ResultList>SoldToPartyName}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="105px" filterProperty="ShipToParty" sortProperty="ShipToParty">
+							<Label text="{i18n>tblShipToParty}" />
+							<table:template>
+								<Text text="{ResultList>ShipToParty}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="145px" filterProperty="ShipToPartyName" sortProperty="ShipToPartyName">
+							<Label text="{i18n>tblShipToPartyName}" />
+							<table:template>
+								<Text text="{ResultList>ShipToPartyName}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="125px" filterProperty="PlannedGoodsIssueDate" sortProperty="PlannedGoodsIssueDate">
+							<Label text="{i18n>tblPlannedGoodsIssueDate}" />
+							<table:template>
+								<Text text="{
+									path:'ResultList>PlannedGoodsIssueDate',
+			        				type: 'sap.ui.model.type.Date'
+								}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="125px" filterProperty="ActualGoodsMovementDate" sortProperty="ActualGoodsMovementDate">
+							<Label text="{i18n>tblActualGoodsIssueDate}" />
+							<table:template>
+								<Text text="{
+									path:'ResultList>ActualGoodsMovementDate',
+			        				type: 'sap.ui.model.type.Date'
+								}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="100px" filterProperty="YY1_SALES_DOCUMENT_DLH" sortProperty="YY1_SALES_DOCUMENT_DLH">
+							<Label text="{i18n>tblReferenceSDDocument}" />
+							<table:template>
+								<Text text="{ResultList>YY1_SALES_DOCUMENT_DLH}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="120px" filterProperty="YY1_H_CUSTPO_DLH" sortProperty="YY1_H_CUSTPO_DLH">
+							<Label text="{i18n>tblCustomerPO}" />
+							<table:template>
+								<Text text="{ResultList>YY1_H_CUSTPO_DLH}"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="100px" filterProperty="IncotermsClassification" sortProperty="IncotermsClassification">
+							<Label text="{i18n>tblIncotermsClassification}" />
+							<table:template>
+								<Text text="{ResultList>IncotermsClassification}"/>
+							</table:template>
+						</table:Column>
+					</table:columns>
+				</table:Table>
+		    </VBox>
+		</content>
+		<beginButton>
+			<Button text="{i18n>btnContinue}" press="onContinueDialog"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>btnCancel}" press="onCloseDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

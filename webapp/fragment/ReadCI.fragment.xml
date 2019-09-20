@@ -1,0 +1,565 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:table="sap.ui.table"
+	xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:Form editable="true" class="sapUiLargeMarginBottom">
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="3"
+					columnsL="2"
+					columnsM="2"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Masking Price Required">
+							<Text text="{HeaderJson>/MaskingPriceUseFlag}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Commercial Invoice">
+							<Text text="{HeaderJson>/EXCINO}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer></f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" class="sapUiLargeMarginBottom">
+			<f:title>
+				<core:Title text="Header Info" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="3"
+					columnsL="2"
+					columnsM="2"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Doc Date">
+							<Text text="{
+								path:'HeaderJson>/DocumentDate',
+								type: 'sap.ui.model.type.Date'
+							}"/>
+						</f:FormElement>
+						<f:FormElement label="Shipment#">
+							 <Text text="{HeaderJson>/Shipment_No}"/>
+						</f:FormElement>
+						<f:FormElement label="Delivery #">
+							<Text text="{HeaderJson>/DeliveryDocument}"/>
+						</f:FormElement>
+						<f:FormElement label="Customer PO#">
+							<Text text="{HeaderJson>/CustomerPO}"/>
+						</f:FormElement>
+						<f:FormElement label="Carrier">
+							<Text text="{HeaderJson>/Carrier}"/>
+						</f:FormElement>
+						<f:FormElement label="Waybill#">
+							<Text text="{HeaderJson>/WAYBILL}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Incoterms">
+							<HBox>
+								<Text text="{HeaderJson>/Incoterms}"/>
+								<Text text="{HeaderJson>/Incoterms_Location}" class="sapUiSmallMarginBegin"/>
+							</HBox>
+						</f:FormElement>
+						<f:FormElement label="Currency">
+							<HBox>
+								<Text text="{HeaderJson>/Currency}"/>
+							</HBox>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" class="sapUiLargeMarginBottom">
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="3"
+					columnsL="2"
+					columnsM="2"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Sold By">
+					<f:formElements>
+						<f:FormElement label="Line 1(Name1+Name2)">
+							<Text text="{HeaderJson>/SoldByLine01}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 2(House+Addresses)">
+							<Text text="{HeaderJson>/SoldByLine02}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 3(City+Postal Code)">
+							<Text text="{HeaderJson>/SoldByLine03}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 4(Region, Country)">
+							<Text text="{HeaderJson>/SoldByLine04}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Ship From">
+					<f:formElements>
+						<f:FormElement label="Line 1(Name1+Name2)">
+							<Text text="{HeaderJson>/ShipFromLine01}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 2(House+Addresses)">
+							<Text text="{HeaderJson>/ShipFromLine02}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 3(City+Postal Code)">
+							<Text text="{HeaderJson>/ShipFromLine03}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 4(Region, Country)">
+							<Text text="{HeaderJson>/ShipFromLine04}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer></f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" class="sapUiLargeMarginBottom">
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="3"
+					columnsL="2"
+					columnsM="2"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Bill To">
+					<f:formElements>
+						<f:FormElement label="Line 1(Name1+Name2)">
+							<Text text="{HeaderJson>/BillToLine01}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 2(House+Addresses)">
+							<Text text="{HeaderJson>/BillToLine02}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 3(City+Postal Code)">
+							<Text text="{HeaderJson>/BillToLine03}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 4(Region, Country)">
+							<Text text="{HeaderJson>/BillToLine04}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Ship To">
+					<f:formElements>
+						<f:FormElement label="Line 1(Name1+Name2)">
+							<Text text="{HeaderJson>/ShipToLine01}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 2(House+Addresses)">
+							<Text text="{HeaderJson>/ShipToLine02}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 3(City+Postal Code)">
+							<Text text="{HeaderJson>/ShipToLine03}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Line 4(Region, Country)">
+							<Text text="{HeaderJson>/ShipToLine04}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer></f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<Panel 
+	    	headerText="Item"
+	    	expandable="true" 
+	    	expanded="true">
+			<table:Table
+				id="ReadItemList"
+				selectionMode="None"
+				rows="{
+					path:'CreateItemList>/',
+					sorter : [{path:'DeliveryDocument'}]
+				}"
+				visibleRowCount="5">
+				<table:extension>
+					<Toolbar>
+						<Title text="CreateItemList( {layout>/CreateItemListCnt} )" level="H2"/>
+						<ToolbarSeparator></ToolbarSeparator>
+					</Toolbar>
+				</table:extension>
+				<table:columns>
+					<table:Column width="75px" filterProperty="CommercialInvoiceItem" sortProperty="CommercialInvoiceItem">
+						<Label text="CI Item#" />
+						<table:template>
+							<Text text="{CreateItemList>CommercialInvoiceItem}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="120px" filterProperty="OutboundDelivery" sortProperty="OutboundDelivery">
+						<Label text="DO#" />
+						<table:template>
+							<Text text="{CreateItemList>OutboundDelivery}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="80px" filterProperty="OutboundDeliveryItem" sortProperty="OutboundDeliveryItem">
+						<Label text="DO Item#" />
+						<table:template>
+							<Text text="{CreateItemList>OutboundDeliveryItem}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="120px" filterProperty="SalesOrder" sortProperty="SalesOrder">
+						<Label text="SO#" />
+						<table:template>
+							<Text text="{CreateItemList>SalesOrder}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="80px" filterProperty="SalesOrderItem" sortProperty="SalesOrderItem">
+						<Label text="SO Item#" />
+						<table:template>
+							<Text text="{CreateItemList>SalesOrderItem}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="180px" filterProperty="MKTPartNumberCode" sortProperty="MKTPartNumberCode">
+						<Label text="MPN Code" />
+						<table:template>
+							<Text text="{CreateItemList>MKTPartNumberCode}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="CustomerPartNumber" sortProperty="CustomerPartNumber">
+						<Label text="Customer Part Number" />
+						<table:template>
+							<Text text="{CreateItemList>CustomerPartNumber}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="CustomerPartDescription" sortProperty="CustomerPartDescription">
+						<Label text="Customer Part Description" />
+						<table:template>
+							<Text text="{CreateItemList>CustomerPartDescription}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="150px" filterProperty="CommodityCode" sortProperty="CommodityCode">
+						<Label text="Commodity Code" />
+						<table:template>
+							<Text text="{CreateItemList>CommodityCode}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="170px" filterProperty="CustomsDescription" sortProperty="CustomsDescription">
+						<Label text="Customs Description" />
+						<table:template>
+							<Text text="{CreateItemList>CustomsDescription}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="150px" filterProperty="ECCNCode" sortProperty="ECCNCode">
+						<Label text="ECCN Code" />
+						<table:template>
+							<Text text="{CreateItemList>ECCNCode}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="100px" filterProperty="LicTypeLicenseNo" sortProperty="LicTypeLicenseNo">
+						<Label text="Lic.Type/License No." />
+						<table:template>
+							<Text text="{CreateItemList>LicTypeLicenseNo}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="100px" filterProperty="Qty" sortProperty="Qty" hAlign="Right">
+						<Label text="Qty" />
+						<table:template>
+							<Text text="{
+								path:'CreateItemList>Qty',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="80px" filterProperty="UoM" sortProperty="UoM">
+						<Label text="UoM" />
+						<table:template>
+							<Text text="{CreateItemList>UoM}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="150px" filterProperty="MPPrice" sortProperty="MPPrice" hAlign="Right">
+						<Label text="Unit Price" />
+						<table:template>
+							<Text text="{
+								path:'CreateItemList>MPPrice',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="MPAmount" sortProperty="MPAmount" hAlign="Right">
+						<Label text="Amount" />
+						<table:template>
+							<Text text="{
+								path:'CreateItemList>MPAmount',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</table:template>
+					</table:Column>
+				</table:columns>
+			</table:Table>
+		</Panel>
+		<f:Form editable="true" class="sapUiLargeMarginBottom">
+			<f:title>
+				<core:Title text="Totalization" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="3"
+					columnsL="2"
+					columnsM="2"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Total Qty">
+							<Text text="{
+								path:'HeaderJson>/TotalQty',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Total Carton">
+							<Text text="{
+								path:'HeaderJson>/TotalCarton',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Grand Total">
+							<Text text="{
+								path:'HeaderJson>/GrandTotal',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Total Gross Weight(Kg)">
+							<Text text="{
+								path:'HeaderJson>/TotalGrossWeight',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Total Net Weight(Kg)">
+							<Text text="{
+								path:'HeaderJson>/TotalNetWeight',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer></f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" class="sapUiLargeMarginBottom">
+			<f:title>
+				<core:Title text="COO Summary" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="3"
+					columnsL="2"
+					columnsM="2"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="HTS Code">
+							<Text text="{HeaderJson>/HTCCode}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Country of Assy">
+							<Text text="{HeaderJson>/CountryofAssyDescription}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Country of FAB">
+							<Text text="{HeaderJson>/CountryofFABDescription}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer></f:FormContainer>
+				<f:FormContainer></f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" class="sapUiLargeMarginBottom">
+			<f:title>
+				<core:Title text="Remarks" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="12"
+					labelSpanM="12"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Remark Text 1">
+							<Text text="{HeaderJson>/RemarkText01}"/>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Remark Text 2">
+							<Text text="{HeaderJson>/RemarkText02}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" class="sapUiLargeMarginBottom">
+			<f:title>
+				<core:Title text="Bottom Text" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="12"
+					labelSpanL="12"
+					labelSpanM="12"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement>
+							<Text text="{HeaderJson>/BottomText}"/>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+</core:FragmentDefinition>

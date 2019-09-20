@@ -15,7 +15,7 @@ sap.ui.define([
  JSONModel, ODataModel, SearchField, TablePersoController, Token, PersoService, File) {
 	"use strict";
 
-	return BaseController.extend("SkyHigh_MM-002.SkyHigh_MM-002.controller.PurchaseInfo", {
+	return BaseController.extend("sap.ui.study.git.controller.June.PurchaseInfo", {
 		onInit: function () {
 			var oView = this.getView(),
 				oLayout = new JSONModel({itemLength : 0});

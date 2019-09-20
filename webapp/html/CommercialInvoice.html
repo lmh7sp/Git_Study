@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Commercial Invoice</title>
+<style>
+.allWidth {
+	width: 90%;
+	padding: 0% 5%;
+}
+.allWidth table {
+    width: 100%;
+    border-collapse: collapse;
+    margin : 4px 0px;
+}
+.allWidth td{
+    text-align: left;
+    padding: 0 10px;
+}
+.allWidth th, .allWidth td{
+	font-weight: normal;
+	text-align: center;
+	height : 30px;
+}
+.allWidth th, .allWidth td{
+	/*border: 1px solid #444444;*/
+    border-right: 1px solid #444444;
+    border-top: 1px solid #444444;
+}
+.allWidth th:first-child, .allWidth td:first-child{
+    border-left: 1px solid #444444;
+}
+.allWidth tr:last-child>td{
+    border-bottom: 1px solid #444444;
+}
+.allWidth .subject{
+	font-weight: bold;
+}
+</style>
+<script type="text/javascript" src="../jsPDF/html2canvas.min.js"></script>
+<script type="text/javascript" src="../jsPDF/jspdf.min.js"></script>
+</head>
+<body id="oBody" class="allWidth">
+	<div style="display: table; width: 100%;">
+    	<div style="display: table-cell;vertical-align: middle;text-align: center;">
+    		<div style="float: left;text-align: left;width: 40%;">
+    			<img src="../img/SkyHighMemory.png">
+    		</div>
+	        <div style="float: left;">
+				<div style="font-size: 35px; font-family: 돋움; font-weight: bold;">Commercial Invoice</div>
+				<span class="subject">Shipment # </span><span data-field-name="Shipment_No"></span><br>
+				<span class="subject">Doc Date: </span><span data-field-name="DocumentDate"></span><br>
+	        </div>
+		</div>
+	</div>
+	<div style="display: table; width: 100%; margin-top: 10px;">
+		<div style="display: table-cell; text-align: left; vertical-align: middle;">
+			<div style="float: left; width: 35%;">
+				<div style="height: 100px;">
+					<span class="subject">Sold By:</span><br>
+					<span data-field-name="SoldByLine01"></span><br>
+					<span data-field-name="SoldByLine02"></span><br>
+					<span data-field-name="SoldByLine03"></span><br>
+					<span data-field-name="SoldByLine04"></span><br>
+				</div>
+				<div style="height: 100px; margin-top: 10px;">
+					<span class="subject">Bill To:</span><br>
+					<span data-field-name="BillToLine01"></span><br>
+					<span data-field-name="BillToLine02"></span><br>
+					<span data-field-name="BillToLine03"></span><br>
+					<span data-field-name="BillToLine04"></span>
+				</div>
+			</div>
+			<div style="float: left; width: 35%;">
+				<div style="height: 100px;">
+					<span class="subject">Ship From:</span><br>
+					<span data-field-name="ShipFromLine01"></span><br>
+					<span data-field-name="ShipFromLine02"></span><br>
+					<span data-field-name="ShipFromLine03"></span><br>
+					<span data-field-name="ShipFromLine04"></span>
+				</div>
+				<div style="height: 100px; margin-top: 10px;">
+					<span class="subject">Ship To:</span><br>
+					<span data-field-name="ShipToLine01"></span><br>
+					<span data-field-name="ShipToLine02"></span><br>
+					<span data-field-name="ShipToLine03"></span><br>
+					<span data-field-name="ShipToLine04"></span>
+				</div>
+			</div>
+			<div style="float: left; width: 25%;">
+				<div style="width: 55%; float: left; text-align: right; margin-right: 10px;">
+					<span class="subject">Delivery #: </span><br><br>
+					<span class="subject">Incoterms #: </span><br><br>
+					<span class="subject">Currency of Transaction: </span><br>
+				</div>
+				<div style="width: 40%; float: left;">
+					<div><span data-field-name="DeliveryDocument"></span></div><br>
+					<div><span data-field-name="Incoterms"></span> <span data-field-name="Incoterms_Location"></span></div><br>
+					<div><span data-field-name="Currency"></span></div><br>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="display: table; width: 100%; height: 50px;">
+    	<div style="display: table-cell; vertical-align: middle; text-align: center;">
+	        <div style="width: 33%;float: left;">
+				<span class="subject">CUSTOMER P.O. #</span><br>
+				<span data-field-name="CustomerPO"></span><br>
+	        </div>
+			<div style="width: 33%;float: left;">
+				<span class="subject">CARRIER</span><br>
+				<span data-field-name="Carrier"></span><br>
+	        </div>
+			<div style="width: 33%;float: left;">
+				<span class="subject">WAYBILL #</span><br>
+				<span data-field-name="WAYBILL"></span><br>
+	        </div>
+		</div>
+	</div>
+	<div style="height: 300px;">
+		<div>
+			<table class="Item ItemList">
+				<colgroup>
+					<col width="5%" />
+					<col width="10%" />
+					<col width="15%" />
+					<col width="15%" />
+					<col width="15%" />
+					<col width="6%" />
+					<col width="6%" />
+					<col width="6%" />
+					<col width="7%" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>Item</th>
+						<th>S.O. Line #</th>
+						<th>
+							MKTG P/N <br>
+							Customs Description<br>
+						</th>
+						<th>Customer Part Number</th>
+						<th>
+							Cummodity Code <br>
+							ECCN<br>
+							Lic. Type/License Mo.<br>
+						</th>
+						<th>Quantity</th>
+						<th>UoM</th>
+						<th>Unit Value</th>
+						<th>Extended Value</th>
+					</tr>
+				</tbody>
+			</table> 
+		</div>
+		<div style="display: table; width: 100%; margin-top: 5px;">
+			<div style="display: table-cell; vertical-align: middle;">
+				<div style="width: 58%; float: left; text-align: left;">
+					<span>Remark Area:</span><br>
+					<span data-field-name="RemarkText01"></span><br>
+					<span data-field-name="RemarkText02"></span>
+				</div>
+				<div style="width: 15%; float: left;"><span class="subject">Total Qty: </span><span data-field-name="TotalQty"></span></div>
+				<div style="width: 15%; float: left; text-align: right; margin-right: 10px;">
+					<span class="subject">Grand Total:</span><br><br>
+					<span class="subject">Total Carton:</span><br><br>
+					<span class="subject">Total Gross Weight(kg):</span><br>
+					<span class="subject">Total Net Weight(kg):</span>
+				</div>
+				<div style="width: 10%;float: left; text-align: left;">
+					<div><span data-field-name="GrandTotal"></span></div><br>
+					<div><span data-field-name="TotalCarton"></span></div><br>
+					<div><span data-field-name="TotalGrossWeight"></span></div>
+					<div><span data-field-name="TotalNetWeight"></span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div style="width: 50%;">
+			<table class="Item">
+				<caption style="text-align: left;">COO SUMMARY:</caption>
+				<colgroup>
+					<col width="16%" />
+					<col width="22%" />
+					<col width="22%" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>HTS</th>
+						<th>COUNTRY OF ASSY</th>
+						<th>COUNTRY OF FAB</th>
+					</tr>
+					<tr>
+						<td><span data-field-name="HTCCode"></span></td>
+						<td><span data-field-name="CountryofAssyDescription"></span></td>
+						<td><span data-field-name="CountryofFABDescription"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div>
+		<pre style="font-size: 20px; font-family: sans-serif;"><span data-field-name="BottomText"></span></pre>
+	</div>
+	<script>
+		(function(){
+			"use strict";
+			
+			var oUtil = (function(){
+				return {
+					setComma : function(num){
+						var regexp = /\B(?=(\d{3})+(?!\d))/g;
+						return num && num.toString().replace(regexp, ',');
+					},
+					setDateFormat : function(sYYYYMMDD, sGubun){
+						var sResult = "";
+						
+						if(sYYYYMMDD.length === 8){
+							var sYear = sYYYYMMDD.slice(0, 4),
+								sMonth = sYYYYMMDD.slice(4, 6),
+								sDay = sYYYYMMDD.slice(6, 8);
+							
+							sResult = sYear + sGubun + sMonth + sGubun + sDay;
+						}
+						
+						return sResult;
+					},
+					_forEach : function(aArray, callBack){
+						Array.prototype.forEach.call(aArray, callBack);	
+					},
+					getCurrenyThree : function(sValue){
+						var aResult = [],
+							sStringValue = sValue.toString(),
+							sCommaValue = this.setComma(sStringValue);
+						
+						aResult = sCommaValue.split(",");
+						return aResult;
+					},
+					getYYYYMMDD : function(oDate){
+						var sYear = "",
+							sMonth = "",
+							sDay = "";
+						if(oDate.getFullYear){
+							sYear = oDate.getFullYear();
+							sMonth = oDate.getMonth() + 1;
+							sDay = oDate.getDate();
+						}
+						
+						if(sMonth < 10){
+							sMonth = "0" + sMonth;
+						}
+						
+						if(sDay < 10){
+							sDay = "0" + sDay;
+						}
+						
+						return {
+							Year : sYear.toString(),
+							Month : sMonth.toString(),
+							Day : sDay.toString()
+						};
+					}
+				};
+			})();
+			
+			var oPDF = (function(){
+				var doc = new jsPDF("l", "mm", "a4");
+				return {
+					downLoadPDF : function(sCINumber){
+						var oFirstPage = document.getElementById("oBody"),
+							sFileName = "CommercialInvoice(" + sCINumber + ").pdf";
+						html2canvas(oFirstPage,{
+							useCORS: true,
+				    		allowTaint: true,
+				    		scale : 1,
+						    onrendered:function(canvas){
+						        var imgData = canvas.toDataURL("image/png");
+								
+								doc.addImage(imgData, "PNG", 0, 5, 300, 190);
+								doc.save(sFileName);
+								
+						    }.bind(this)
+						});
+					}
+				};
+			})();
+			
+			var oDataMapping = (function(){
+				return {
+					setHeaderData : function(oHeader){
+						for(var sField in oHeader){
+							if(oHeader.hasOwnProperty(sField)){
+								var oDom = document.querySelector('[data-field-name="'+sField+'"]');
+								if(oDom){
+									if(oDom.parentElement.classList.contains("Number")){
+										oDom.innerText = oUtil.setComma(oHeader[sField]);
+									}else{
+										oDom.innerText = oHeader[sField];
+									}
+								}
+							}
+						}
+					},
+					setItemData : function(aItemArr){
+						aItemArr.forEach(function(item){
+							var oDomtr = document.createElement("tr");
+							oDomtr.innerHTML = this.addItemList(item);
+							document.getElementsByClassName("ItemList")[0].tBodies[0].appendChild(oDomtr);
+						}.bind(this));
+					},
+					addItemList : function(oItem){
+						var sResults = "";
+						sResults = "" + 	
+						'<tr>' +
+							'<td><span data-field-name="CommercialInvoiceItem">' + oItem.CommercialInvoiceItem + '</span></td>' +
+							'<td>' +
+								'<span data-field-name="SalesOrder">' + oItem.SalesOrder + '</span>' + " - " +
+								'<span data-field-name="SalesOrderItem">' + oItem.SalesOrderItem + '</span>' +
+							'</td>' +
+							'<td>' + 
+								'<span data-field-name="MKTPartNumberCode">' + oItem.MKTPartNumberCode + '</span><br><br>' + 
+								'<span data-field-name="CustomsDescription">' + oItem.CustomsDescription + '</span>' + 
+							'</td>' +
+							'<td><span data-field-name="CustomerPartNumber">' + oItem.CustomerPartNumber + '</span></td> ' +
+							'<td>' +
+								'<span data-field-name="CommodityCode">' + oItem.CommodityCode + '</span><br><br>' +
+								'<span data-field-name="ECCNCode">' + oItem.ECCNCode + '</span><br><br>' +
+								'<span data-field-name="LicTypeLicenseNo">' + oItem.LicTypeLicenseNo + '</span>' +
+							'</td>' +
+							'<td><span data-field-name="Qty">' + oUtil.setComma(oItem.Qty) + '</span></td>' +
+							'<td><span data-field-name="UoM">' + oItem.UoM + '</span></td>' +
+							'<td><span data-field-name="MPPrice">' + oUtil.setComma(oItem.MPPrice) + '</span></td>' +
+							'<td><span data-field-name="MPAmount">' + oUtil.setComma(oItem.MPAmount)+ '</span></td>' +
+						'</tr>';
+						
+						return sResults;
+					}
+				};
+			})();
+			
+			window.onload = function(){
+				oDataMapping.setHeaderData(opener._getHeader);
+				oDataMapping.setItemData(opener._getItem);
+				oPDF.downLoadPDF(opener._getHeader.EXCINO);	
+			};
+		})()
+	</script>
+</body>
+</html>

@@ -65,6 +65,12 @@
 				"ref": "sap-icon://create",
 				"type": "Active",
 				"goTo":"SimpleSearchPage"
+			},
+			{
+				"text": "CommercialInvoice",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"TargetCommercialInvoice"
 			}
 		]
 	}

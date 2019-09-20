@@ -1,0 +1,24 @@
+<mvc:View controllerName="sap.ui.study.git.controller.June.CreateCommercialInvoice" 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:table="sap.ui.table"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="CIDetail" title="{i18n>subTitle}" showNavButton="true" navButtonPress="onViewPage">
+		<subHeader>
+			<OverflowToolbar>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button text="Edit" press="onEditCI" type="Emphasized" visible="{BtnLayout>/Visible}"/>
+				<Button text="Print" press="onPrint" type="Default" visible="{BtnLayout>/Visible}"/>
+			</OverflowToolbar>
+		</subHeader>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button text="Save" press="onCommercialInvoice" type="Emphasized" visible="{=!${BtnLayout>/Visible}}"/>
+				<Button text="Cancel" press="onCancle" type="Default" visible="{=!${BtnLayout>/Visible}}"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

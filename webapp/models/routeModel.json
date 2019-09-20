@@ -76,4 +76,15 @@
 	"titleTarget": "",
 	"greedy": false,
 	"target": ["sampleMenu", "SimpleSearchPage"]
-}]
+},{
+	"name": "TargetCommercialInvoice",
+	"greedy": false,
+	"pattern": "sample/June/CommercialInvoice",
+	"target": ["sampleMenu", "TargetCommercialInvoice"]
+}, {
+	"name": "CreateCommercialInvoice",
+	"greedy": false,
+	"pattern": "sample/June/CreateInvoice/{LayoutOption}/{SoldToParty}/{ShipToParty}/:List:",
+	"target": ["sampleMenu", "CreateCommercialInvoice"]
+}
+]

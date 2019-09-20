@@ -1,0 +1,410 @@
+<mvc:View 
+	controllerName="sap.ui.study.git.controller.June.CommercialInvoice" 
+	displayBlock="true" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:table="sap.ui.table"
+	xmlns="sap.m">
+		<Page id="page" showHeader="false">
+			<fb:FilterBar id="oFilterBar" reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" useToolbar="false">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="SoldToParty" label="Sold-To Party" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<Input showValueHelp="true" valueHelpRequest="onOpenBPSearchDialog"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="ShipToParty" label="Ship-To Party" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<Input showValueHelp="true" valueHelpRequest="onOpenBPSearchDialog"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="PlannedGoodsIssueDate" label="Planned GI Date" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<DateRangeSelection/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="ActualGoodsIssueDate" label="Actual GI Date" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<DateRangeSelection/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="EXCINO" label="Commercial Invoice" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<Input/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="DeliveryDocument" label="OutBound Delivery" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<Input/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="CustomerPO" label="CustomerPO" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<Input/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="ReferenceSDDocument" label="Sales Order" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<Input/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>	
+		    </fb:FilterBar>
+		    <table:Table
+				id="CIDocList"
+				selectionMode="MultiToggle"
+				rowActionCount="1"
+				rows="{
+					path:'CIDocJson>/',
+					sorter : [{path:'EXCINO'}]
+				}"
+				visibleRowCount="15">
+				<table:extension>
+					<Toolbar>
+						<Title text="Commercial Invoice Document( {layout>/tableCnt} )" level="H2"/>
+						<ToolbarSeparator></ToolbarSeparator>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="Create" press="onCreate" />
+						<Button text="Delete" press="onDelete" />
+						<Button text="Print" press="onPrint" />
+						<Button icon="sap-icon://action-settings" press="onPersoButtonPressed" />
+						<Button icon="sap-icon://excel-attachment" press="onExcelDownLoad" />
+					</Toolbar>
+				</table:extension>
+				<table:rowActionTemplate>
+					<table:RowAction>
+						<table:RowActionItem type="Navigation" press="onDetailPage"/>
+					</table:RowAction>
+				</table:rowActionTemplate>
+				<table:columns>
+					<table:Column width="150px" filterProperty="EXCINO" sortProperty="EXCINO">
+						<Label text="{i18n>tblEXCINO}" />
+						<table:template>
+							<Text text="{CIDocJson>EXCINO}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="150px" filterProperty="DeliveryDocument" sortProperty="DeliveryDocument">
+						<Label text="{i18n>tblDeliveryDocument}" />
+						<table:template>
+							<Text text="{CIDocJson>DeliveryDocument}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="110px" filterProperty="SoldToParty" sortProperty="SoldToParty">
+						<Label text="{i18n>tblSoldToParty}" />
+						<table:template>
+							<Text text="{CIDocJson>SoldToParty}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="350px" filterProperty="SoldToPartyName" sortProperty="SoldToPartyName">
+						<Label text="{i18n>tblSoldToPartyName}" />
+						<table:template>
+							<Text text="{CIDocJson>SoldToPartyName}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="110px" filterProperty="ShipToParty" sortProperty="ShipToParty">
+						<Label text="{i18n>tblShipToParty}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipToParty}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="350px" filterProperty="ShipToPartyName" sortProperty="ShipToPartyName">
+						<Label text="{i18n>tblShipToPartyName}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipToPartyName}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="130px" filterProperty="PlannedGoodsIssueDate" sortProperty="PlannedGoodsIssueDate">
+						<Label text="{i18n>tblPlannedGoodsIssueDate}" />
+						<table:template>
+							<Text text="{
+								path:'CIDocJson>PlannedGoodsIssueDate',
+		        				type: 'sap.ui.model.type.Date'
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="130px" filterProperty="ActualGoodsIssueDate" sortProperty="ActualGoodsIssueDate">
+						<Label text="{i18n>tblActualGoodsIssueDate}" />
+						<table:template>
+							<Text text="{
+								path:'CIDocJson>ActualGoodsIssueDate',
+		        				type: 'sap.ui.model.type.Date'
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="100px" filterProperty="ReferenceSDDocument" sortProperty="ReferenceSDDocument">
+						<Label text="{i18n>tblReferenceSDDocument}" />
+						<table:template>
+							<Text text="{CIDocJson>ReferenceSDDocument}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="CustomerPO" sortProperty="CustomerPO">
+						<Label text="{i18n>tblCustomerPO}" />
+						<table:template>
+							<Text text="{CIDocJson>CustomerPO}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="DocumentDate" sortProperty="DocumentDate" visible="false">
+						<Label text="{i18n>tblDocumentDate}" />
+						<table:template>
+							<Text text="{
+								path:'CIDocJson>DocumentDate',
+		        				type: 'sap.ui.model.type.Date'
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Shipment_No" sortProperty="Shipment_No" visible="false">
+						<Label text="{i18n>tblShipment_No}" />
+						<table:template>
+							<Text text="{CIDocJson>Shipment_No}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Carrier" sortProperty="Carrier" visible="false">
+						<Label text="{i18n>tblCarrier}" />
+						<table:template>
+							<Text text="{CIDocJson>Carrier}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="WAYBILL" sortProperty="WAYBILL" visible="false">
+						<Label text="{i18n>tblWAYBILL}" />
+						<table:template>
+							<Text text="{CIDocJson>WAYBILL}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Incoterms" sortProperty="Incoterms" visible="false">
+						<Label text="{i18n>tblIncoterms}" />
+						<table:template>
+							<Text text="{CIDocJson>Incoterms}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Incoterms_Location" sortProperty="Incoterms_Location" visible="false">
+						<Label text="{i18n>tblIncoterms_Location}" />
+						<table:template>
+							<Text text="{CIDocJson>Incoterms_Location}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Currency" sortProperty="Currency" visible="false">
+						<Label text="{i18n>tblCurrency}" />
+						<table:template>
+							<Text text="{CIDocJson>Currency}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="MaskingPriceUseFlag" sortProperty="MaskingPriceUseFlag" visible="false">
+						<Label text="{i18n>tblMaskingPriceUseFlag}" />
+						<table:template>
+							<Text text="{CIDocJson>MaskingPriceUseFlag}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="SoldByLine01" sortProperty="SoldByLine01" visible="false">
+						<Label text="{i18n>tblSoldByLine01}" />
+						<table:template>
+							<Text text="{CIDocJson>SoldByLine01}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="SoldByLine02" sortProperty="SoldByLine02" visible="false">
+						<Label text="{i18n>tblSoldByLine02}" />
+						<table:template>
+							<Text text="{CIDocJson>SoldByLine02}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="SoldByLine03" sortProperty="SoldByLine03" visible="false">
+						<Label text="{i18n>tblSoldByLine03}" />
+						<table:template>
+							<Text text="{CIDocJson>SoldByLine03}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="SoldByLine04" sortProperty="SoldByLine04" visible="false">
+						<Label text="{i18n>tblSoldByLine04}" />
+						<table:template>
+							<Text text="{CIDocJson>SoldByLine04}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="ShipFromLine01" sortProperty="ShipFromLine01" visible="false">
+						<Label text="{i18n>tblShipFromLine01}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipFromLine01}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="ShipFromLine02" sortProperty="ShipFromLine02" visible="false">
+						<Label text="{i18n>tblShipFromLine02}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipFromLine02}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="ShipFromLine03" sortProperty="ShipFromLine03" visible="false">
+						<Label text="{i18n>tblShipFromLine03}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipFromLine03}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="ShipFromLine04" sortProperty="ShipFromLine04" visible="false">
+						<Label text="{i18n>tblShipFromLine04}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipFromLine04}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="BillToLine01" sortProperty="BillToLine01" visible="false">
+						<Label text="{i18n>tblBillToLine01}" />
+						<table:template>
+							<Text text="{CIDocJson>BillToLine01}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="BillToLine02" sortProperty="BillToLine02" visible="false">
+						<Label text="{i18n>tblBillToLine02}" />
+						<table:template>
+							<Text text="{CIDocJson>BillToLine02}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="BillToLine03" sortProperty="BillToLine03" visible="false">
+						<Label text="{i18n>tblBillToLine03}" />
+						<table:template>
+							<Text text="{CIDocJson>BillToLine03}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="BillToLine04" sortProperty="BillToLine04" visible="false">
+						<Label text="{i18n>tblBillToLine04}" />
+						<table:template>
+							<Text text="{CIDocJson>BillToLine04}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="ShipToLine01" sortProperty="ShipToLine01" visible="false">
+						<Label text="{i18n>tblShipToLine01}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipToLine01}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="ShipToLine02" sortProperty="ShipToLine02" visible="false">
+						<Label text="{i18n>tblShipToLine02}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipToLine02}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="ShipToLine03" sortProperty="ShipToLine03" visible="false">
+						<Label text="{i18n>tblShipToLine03}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipToLine03}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="ShipToLine04" sortProperty="ShipToLine04" visible="false">
+						<Label text="{i18n>tblShipToLine04}" />
+						<table:template>
+							<Text text="{CIDocJson>ShipToLine04}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="TotalQty" sortProperty="TotalQty" visible="false" hAlign="Right">
+						<Label text="{i18n>tblTotalQty}" />
+						<table:template>
+							<Text text="{
+								path:'CIDocJson>TotalQty',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="TotalCarton" sortProperty="TotalCarton" visible="false" hAlign="Right">
+						<Label text="{i18n>tblTotalCarton}" />
+						<table:template>
+							<Text text="{
+								path:'CIDocJson>TotalCarton',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="GrandTotal" sortProperty="GrandTotal" visible="false" hAlign="Right">
+						<Label text="{i18n>tblGrandTotal}" />
+						<table:template>
+							<Text text="{
+								path:'CIDocJson>GrandTotal',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="TotalGrossWeight" sortProperty="TotalGrossWeight" visible="false" hAlign="Right">
+						<Label text="{i18n>tblTotalGrossWeight}" />
+						<table:template>
+							<Text text="{
+								path:'CIDocJson>TotalGrossWeight',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="TotalNetWeight" sortProperty="TotalNetWeight" visible="false" hAlign="Right">
+						<Label text="{i18n>tblTotalNetWeight}" />
+						<table:template>
+							<Text text="{
+								path:'CIDocJson>TotalNetWeight',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									maxFractionDigits: 0
+								}
+							}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="HTCCode" sortProperty="HTCCode" visible="false">
+						<Label text="{i18n>tblHTCCode}" />
+						<table:template>
+							<Text text="{CIDocJson>HTCCode}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="HTCCodeDescription" sortProperty="HTCCodeDescription" visible="false">
+						<Label text="{i18n>tblHTCCodeDescription}" />
+						<table:template>
+							<Text text="{CIDocJson>HTCCodeDescription}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="CountryofAssy" sortProperty="CountryofAssy" visible="false">
+						<Label text="{i18n>tblCountryofAssy}" />
+						<table:template>
+							<Text text="{CIDocJson>CountryofAssy}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="CountryofAssyDescription" sortProperty="CountryofAssyDescription" visible="false">
+						<Label text="{i18n>tblCountryofAssyDescription}" />
+						<table:template>
+							<Text text="{CIDocJson>CountryofAssyDescription}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="CountryofFAB" sortProperty="CountryofFAB" visible="false">
+						<Label text="{i18n>tblCountryofFAB}" />
+						<table:template>
+							<Text text="{CIDocJson>CountryofFAB}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="CountryofFABDescription" sortProperty="CountryofFABDescription" visible="false">
+						<Label text="{i18n>tblCountryofFABDescription}" />
+						<table:template>
+							<Text text="{CIDocJson>CountryofFABDescription}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="RemarkText01" sortProperty="RemarkText01" visible="false">
+						<Label text="{i18n>tblRemarkText01}" />
+						<table:template>
+							<Text text="{CIDocJson>RemarkText01}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="RemarkText02" sortProperty="RemarkText02" visible="false">
+						<Label text="{i18n>tblRemarkText02}" />
+						<table:template>
+							<Text text="{CIDocJson>RemarkText02}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="BottomText" sortProperty="BottomText" visible="false">
+						<Label text="{i18n>tblBottomText}" />
+						<table:template>
+							<Text text="{CIDocJson>BottomText}"/>
+						</table:template>
+					</table:Column>
+				</table:columns>
+			</table:Table>
+		</Page>
+</mvc:View>

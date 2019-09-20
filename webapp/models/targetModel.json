@@ -206,5 +206,28 @@
 		"controlId": "navContainer",
 		"controlAggregation": "pages",
 		"parent": "detailHeader"
+	},
+	"TargetCommercialInvoice": {
+		"viewType": "XML",
+		"transition": "slide",
+		"clearControlAggregation": false,
+		"viewId": "CommercialInvoice",
+		"viewName": "CommercialInvoice",
+		"viewPath": "sap.ui.study.git.view.June",
+		"viewLevel": 3,
+		"controlId": "navContainer",
+		"controlAggregation": "pages",
+		"parent": "detailHeader"
+	},
+	"CreateCommercialInvoice": {
+		"viewType": "XML",
+		"viewName": "CreateCommercialInvoice",
+		"clearControlAggregation": false,
+		"viewPath": "sap.ui.study.git.view.June",
+		"transition": "slide",
+		"viewLevel": 4,
+		"controlId": "navContainer",
+		"controlAggregation": "pages",
+		"parent": "detailHeader"
 	}
 }
