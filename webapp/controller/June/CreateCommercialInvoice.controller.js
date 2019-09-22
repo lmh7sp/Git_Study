@@ -54,7 +54,6 @@ sap.ui.define([
 		},
 		_setDesplaySetting : function(aDeliveryArr){
 			var oView = this.getView(),
-				oModel = oView.getModel("CommercialInvoice"),
 				oJsonModel = oView.getModel("CreateItemList"),
 				oLayoutModel = oView.getModel("layout"),
 				oHeaderJson = oView.getModel("HeaderJson"),
@@ -67,72 +66,69 @@ sap.ui.define([
 			oJsonModel.setProperty("/", []);
 			oLayoutModel.setProperty("/CreateItemListCnt", 0);
 			
-			this._getODataRead(oModel, "/YY1_COMMERCIAL_INVOICE", aFilter,{
-				"$expand" : "to_COMMERCIAL_INVOICE_ITEM"
-			}).done(function(aResults){
-				var aSalesOrderFilter = [],
-					aSalesOrderDummyFilter = [],
-					aItemArr = [];
-				if(aResults.length){
-					aItemArr = aResults[0]["to_COMMERCIAL_INVOICE_ITEM"].results;
-					oHeaderJson.setProperty("/", aResults[0]);
-					var aSalesOrderDummyFilter = aItemArr.map(function(item){
-						return new Filter({
-							filters : [
-								new Filter("SalesOrder", "EQ", item.SalesOrder),
-								new Filter("SalesOrderItem", "EQ", item.SalesOrderItem)
-							],
-							and : true
-						});
-					});
-					
-					aSalesOrderFilter.push(new Filter({
+			var aResults = [];
+			var aSalesOrderFilter = [],
+				aSalesOrderDummyFilter = [],
+				aItemArr = [];
+			if(aResults.length){
+				aItemArr = aResults[0]["to_COMMERCIAL_INVOICE_ITEM"].results;
+				oHeaderJson.setProperty("/", aResults[0]);
+				var aSalesOrderDummyFilter = aItemArr.map(function(item){
+					return new Filter({
 						filters : [
-							new Filter({ filters : aSalesOrderDummyFilter, and : false }),
-							new Filter("ConditionType", "EQ", "ZMP1")
+							new Filter("SalesOrder", "EQ", item.SalesOrder),
+							new Filter("SalesOrderItem", "EQ", item.SalesOrderItem)
 						],
 						and : true
-					}));
-				}else{
-					oPage.setBusy(false);
-				}
-				if(aItemArr.length){
-					this._getODataRead(oSalesOrderModel, "/A_SalesOrderItemPrElement", aSalesOrderFilter).done(function(aSalseOrderItem){
-						var oSalseOrderObj = aSalseOrderItem.reduce(function(total, row){
-							var sKey =row.SalesOrder + "_" + row.SalesOrderItem;
-							if(!total[sKey]){
-								total[sKey] = [];
-							}
-							total[sKey].push(row);
-							return total;
-						}, {});
-						
-						oJsonModel.setProperty("/", aItemArr.map(function(item){
-							var sKey = item.SalesOrder + "_" + item.SalesOrderItem,
-								iUnitPrice = "0";
-							if(oSalseOrderObj[sKey]){
-								iUnitPrice = oSalseOrderObj[sKey][0].ConditionRateValue;
-							}
-							item.MaskingPrice = Number(iUnitPrice).toFixed(2);
-							item.MaskingAmount = ( Number(item.Qty) * Number(iUnitPrice) ).toFixed(2);
-							
-							if(aResults[0].MaskingPriceUseFlag === "Y"){
-								item.MPPrice = item.MaskingPrice;
-								item.MPAmount = item.MaskingAmount;
-							}else{
-								item.MPPrice = item.UnitPrice;
-								item.MPAmount = item.Amount;
-							}
-							return item;
-						}));
-						oLayoutModel.setProperty("/CreateItemListCnt", aItemArr.length);
-						
-						oPage.setBusy(false);
 					});
-				}else{
+				});
+				
+				aSalesOrderFilter.push(new Filter({
+					filters : [
+						new Filter({ filters : aSalesOrderDummyFilter, and : false }),
+						new Filter("ConditionType", "EQ", "ZMP1")
+					],
+					and : true
+				}));
+			}else{
+				oPage.setBusy(false);
+			}
+			if(aItemArr.length){
+				this._getODataRead(oSalesOrderModel, "/A_SalesOrderItemPrElement", aSalesOrderFilter).done(function(aSalseOrderItem){
+					var oSalseOrderObj = aSalseOrderItem.reduce(function(total, row){
+						var sKey =row.SalesOrder + "_" + row.SalesOrderItem;
+						if(!total[sKey]){
+							total[sKey] = [];
+						}
+						total[sKey].push(row);
+						return total;
+					}, {});
+					
+					oJsonModel.setProperty("/", aItemArr.map(function(item){
+						var sKey = item.SalesOrder + "_" + item.SalesOrderItem,
+							iUnitPrice = "0";
+						if(oSalseOrderObj[sKey]){
+							iUnitPrice = oSalseOrderObj[sKey][0].ConditionRateValue;
+						}
+						item.MaskingPrice = Number(iUnitPrice).toFixed(2);
+						item.MaskingAmount = ( Number(item.Qty) * Number(iUnitPrice) ).toFixed(2);
+						
+						if(aResults[0].MaskingPriceUseFlag === "Y"){
+							item.MPPrice = item.MaskingPrice;
+							item.MPAmount = item.MaskingAmount;
+						}else{
+							item.MPPrice = item.UnitPrice;
+							item.MPAmount = item.Amount;
+						}
+						return item;
+					}));
+					oLayoutModel.setProperty("/CreateItemListCnt", aItemArr.length);
+					
 					oPage.setBusy(false);
-				}
-			}.bind(this));
+				});
+			}else{
+				oPage.setBusy(false);
+			}
 		},
 		_callUpDateNumberRange : function(sUUID, sCINumber){
 			var oView = this.getView(),

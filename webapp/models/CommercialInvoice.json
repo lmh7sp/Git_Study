@@ -1,0 +1,77 @@
+ [
+	{
+		"text": "ListBase",
+		"ref": "sap-icon://attachment-audio",
+		"type": "Inactive",
+		"goTo":"",
+		"nodes":
+		[
+			{
+				"text": "List",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"listExample"
+			},
+			{
+				"text": "Table",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"tableExample"
+			}
+		]
+	},
+	{
+		"text": "Layout",
+		"ref": "sap-icon://customer-financial-fact-sheet",
+		"type": "Inactive",
+		"goTo":"",
+		"nodes":
+		[
+			{
+				"text": "BlockLayout",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"blockLayoutExample"
+			},
+			{
+				"text": "Form",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"formExample"
+			},
+			{
+				"text": "Grid",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"gridExample"
+			},
+			{
+				"text": "ResponsiveSplitte",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"responsiveSplitterExample"
+			}
+		]
+	},
+	{
+		"text": "June",
+		"ref": "sap-icon://attachment-audio",
+		"type": "Inactive",
+		"goTo":"",
+		"nodes":
+		[
+			{
+				"text": "SimpleSearchPage",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"SimpleSearchPage"
+			},
+			{
+				"text": "CommercialInvoice",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"TargetCommercialInvoice"
+			}
+		]
+	}
+]

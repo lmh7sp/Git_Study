@@ -190,7 +190,6 @@ sap.ui.define([
 		},
 		onSearch : function(){
 			var oView = this.getView(),
-				oModel = oView.getModel("CommercialInvoice"),
 				oJsonModel = oView.getModel("CIDocJson"),
 				oLayoutModel = oView.getModel("layout"),
 				oTable = oView.byId("CIDocList"),
@@ -211,15 +210,17 @@ sap.ui.define([
 			oTable.setSelectedIndex(-1);
 			oJsonModel.setProperty("/", []);
 			oLayoutModel.setProperty("/tableCnt", 0);
-			this._getODataRead(oModel, "/YY1_COMMERCIAL_INVOICE", aFilter,{
-				"$expand" : "to_COMMERCIAL_INVOICE_ITEM"
-			}).done(function(aResults){
-				oJsonModel.setProperty("/", aResults.map(function(item){
-					return item;
-				}));
-				oLayoutModel.setProperty("/tableCnt", aResults.length);
-				oTable.setBusy(false);
-			});
+			
+			var aResults = this._getDataHeader();
+			
+			oJsonModel.setProperty("/", aResults.map(function(item){
+				return item;
+			}));
+			oLayoutModel.setProperty("/tableCnt", aResults.length);
+			oTable.setBusy(false);
+		},
+		_getDataHeader : function(){
+			return [];
 		},
 		onDetailPage : function(oEvent){
 			var oTemplate = oEvent.getSource(),

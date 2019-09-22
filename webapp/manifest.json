@@ -103,6 +103,12 @@
 				"uri": "models/routeModel.json",
 				"preload": true
 			},
+			"CommercialInvoice": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "models/CommercialInvoice.json",
+				"preload": true
+			},
 			"myBindingElementModel": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {},
