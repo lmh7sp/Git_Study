@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/study/git/controller/BaseController",
 	"sap/ui/model/Filter"
-], function (BaseController,Filter) {
+], function (BaseController,Filter) { 
 	"use strict";
 	var _Filter = [];	
 	return BaseController.extend("sap.ui.study.git.controller.list.TableExample", {
