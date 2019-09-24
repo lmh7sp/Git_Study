@@ -195,6 +195,17 @@
 		"controlAggregation": "detailPages",
 		"viewPath": "sap.ui.study.git.view.workPlace.Ajpyun"
 	},
+	"smmoon": {
+		"controlId":"container-nav---app--container",
+		"viewType": "XML",
+		"transition": "slide",
+		"clearControlAggregation": false,
+		"viewName": "Smmoon",
+		"viewId": "smmoon",
+		"viewLevel": 2,
+		"controlAggregation": "detailPages",
+		"viewPath": "sap.ui.study.git.view.workPlace.Smmoon"
+	},
 	"SimpleSearchPage": {
 		"viewType": "XML",
 		"viewName": "SimpleSearchPage",

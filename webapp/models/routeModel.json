@@ -71,6 +71,12 @@
 	"greedy": false,
 	"target": ["studyMenu","ajpyun"]
 }, {
+	"name": "smmoon",
+	"pattern": "study/Smmoon/Smmoon",
+	"titleTarget": "",
+	"greedy": false,
+	"target": ["studyMenu","smmoon"]
+}, {
 	"name": "SimpleSearchPage",
 	"pattern": "sample/June/SimpleSearchPage",
 	"titleTarget": "",

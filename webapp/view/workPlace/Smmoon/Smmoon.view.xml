@@ -1,0 +1,213 @@
+<mvc:View 
+	controllerName="sap.ui.study.git.controller.workPlace.Smmoon.Smmoon"
+	displayBlock="true" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:table="sap.ui.table"
+	xmlns="sap.m">
+	<Shell id="shell" appWidthLimited="false">
+		<App id="app">
+		<pages>
+		<Page id="Smmoon" showHeader="false" class="sapUiResponsiveContentPadding">
+			<fb:FilterBar id="oFilterBar" reset="onReset" header="Example Table" search="onSearch" showRestoreButton="true" showClearButton="true">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="CompanyCode" label="CompanyCode" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<MultiComboBox
+								id="CompanyCode"
+								showSecondaryValues="true"
+								items="{CompanyCode>/A_CompanyCode}">
+								<core:ListItem key="{CompanyCode>CompanyCode}" text="{CompanyCode>CompanyCode}" 
+								additionalText="{CompanyCode>CompanyCodeName}"/>
+							</MultiComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Requester" label="Requester" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<MultiComboBox
+								id="Requester"
+								showSecondaryValues="true"
+								items="{/YY1_FI005_REQUESTER}">
+								<core:ListItem key="{Code}" text="{Code}" 
+								additionalText="{Description}"/>
+							</MultiComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="PaymentDate" label="PaymentDate" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<DateRangeSelection id="PaymentDate"></DateRangeSelection>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Category" label="Category" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<MultiComboBox
+								id="Category"
+								showSecondaryValues="true"
+								items="{/YY1_FI005_EXPENSECATEGORY1}">
+								<core:ListItem key="{Code}" text="{Code}" 
+								additionalText="{Description}"/>
+							</MultiComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>	
+		    </fb:FilterBar>
+		    <table:Table
+				id="tableModel"
+				selectionMode="MultiToggle"
+				visibleRowCountMode="Interactive"
+				rowActionCount="1"
+				rows="{
+					path:'mainModel>/results',
+					sorter : []
+				}"
+				selectionBehavior="Row"
+				visibleRowCount="10">
+		    	<!-- sorter : [{path:'AttachDocNo'}, {path:'UniqueID'}] -->
+				<table:extension>
+					<Toolbar>
+						<Title text="Total ({layout>/tableRows})" level="H2"/>
+						<CheckBox id="Corporation" text="Corporation" selected="false" />
+						<Button icon="sap-icon://add" press="onLineAdd" />
+						<Button icon="sap-icon://less" press="onDelete('Line')" />
+						<ToolbarSpacer />
+						<ComboBox
+							id="StatusList"
+							showSecondaryValues="true"
+							items="{layout>/status}">
+							<core:ListItem key="{layout>key}" text="{layout>text}" additionalText="{layout>key}"/>
+						</ComboBox>
+						<Button text="Update" press="onUpdate" />
+						<Button text="Save" press="onSave" />
+						<Button text="Delete" press="onDelete" />
+						<Button icon="sap-icon://form" press="onLoadHTMLform" />
+						<Button icon="sap-icon://excel-attachment" press="onExport" />
+						<!--<Button icon="sap-icon://action-settings" press="onPersoButtonPressed" />-->
+					</Toolbar>
+				</table:extension>
+				<table:columns>
+					<table:Column width="200px" filterProperty="CompanyCode" sortProperty="CompanyCode">
+						<Label text="CompanyCode" required="true" />
+						<table:template>
+							<Input value="{mainModel>CompanyCode}" editable="{mainModel>editRow}" showValueHelp="true" valueHelpRequest="onCompanyCodeOpenDialog" change="onInputCheck"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Requester" sortProperty="Requester">
+						<Label text="Requester" required="true" />
+						<table:template>
+							<Input value="{mainModel>Requester}" editable="{mainModel>editRow}" showValueHelp="true" valueHelpRequest="onRequesterOpenDialog" change="onInputCheck"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="CorporateCard" sortProperty="CorporateCard">
+						<Label text="CorporateCard" />
+						<table:template>
+							<Input value="{mainModel>CorporateCard}" editable="{mainModel>editCorporation}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="PaymentDate" sortProperty="PaymentDate">
+						<Label text="PaymentDate" required="true" />
+						<table:template>
+							<Input value="{
+								path: 'mainModel>PaymentDate',
+						        type: 'sap.ui.model.type.Date',
+						        formatOptions: {
+						        	pattern: 'yyyy.MM.dd'
+						        }
+							}" editable="{mainModel>editRow}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Category" sortProperty="Category">
+						<Label text="Category" required="true"/>
+						<table:template>
+							<Input value="{mainModel>Category}" editable="{mainModel>editcategory}" showValueHelp="true" valueHelpRequest="onCategoryOpenDialog" change="onInputCheck"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Amount" sortProperty="Amount">
+						<Label text="Amount" />
+						<table:template>
+							<Input value="{
+							    parts: [
+							        {path: 'mainModel>Amount'}, 
+							        {path: 'mainModel>Currency'}
+							    ],
+							    type: 'sap.ui.model.type.Currency',
+							    formatOptions: {
+							        showMeasure: false
+							    }
+							}" editable="{mainModel>editRow}" textAlign="Right" liveChange="onAmountCheck"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Currency" sortProperty="Currency">
+						<Label text="Currency" />
+						<table:template>
+							<Input value="{mainModel>Currency}" editable="{mainModel>editRow}" showValueHelp="true" valueHelpRequest="onCurrencyOpenDialog" change="onInputCheck"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Description" sortProperty="Description">
+						<Label text="Description"/>
+						<table:template>
+							<Input value="{mainModel>Description}" editable="{mainModel>editRow}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Remark" sortProperty="Remark">
+						<Label text="Remark" />
+						<table:template>
+							<Input value="{mainModel>Remark}" editable="{mainModel>editRow}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="Status" sortProperty="Status">
+						<Label text="Status" />
+						<table:template>
+							<Text text="{mainModel>Status}"/>
+						</table:template>
+					</table:Column>
+					<!--<table:Column width="200px" filterProperty="Status_Text" sortProperty="Status_Text">-->
+					<!--	<Label text="Status_Text" />-->
+					<!--	<table:template>-->
+					<!--		<Text text="{mainModel>Status_Text}"/>-->
+					<!--	</table:template>-->
+					<!--</table:Column>-->
+					<table:Column hAlign="Center" width="200px" filterProperty="Attachment" sortProperty="Attachment">
+						<Label text="Attachment" />
+						<table:template>
+							<CheckBox enabled="{mainModel>editRow}" selected="{mainModel>chkAttachment}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="200px" filterProperty="AttachDocNo" sortProperty="AttachDocNo">
+						<Label text="AttachDocNo" />
+						<table:template>
+							<Text text="{mainModel>AttachDocNo}"/>
+						</table:template>
+					</table:Column>
+					<!--<table:Column width="200px" filterProperty="CreatedOn" sortProperty="CreatedOn">-->
+					<!--	<Label text="CreatedOn" />-->
+					<!--	<table:template>-->
+					<!--		<Text text="{mainModel>CreatedOn}"/>-->
+					<!--	</table:template>-->
+					<!--</table:Column>-->
+					<!--<table:Column width="200px" filterProperty="CreatedBy" sortProperty="CreatedBy">-->
+					<!--	<Label text="CreatedBy" />-->
+					<!--	<table:template>-->
+					<!--		<Text text="{mainModel>CreatedBy}"/>-->
+					<!--	</table:template>-->
+					<!--</table:Column>-->
+					<!--<table:Column width="200px" filterProperty="ChangedOn" sortProperty="ChangedOn">-->
+					<!--	<Label text="ChangedOn" />-->
+					<!--	<table:template>-->
+					<!--		<Text text="{mainModel>ChangedOn}"/>-->
+					<!--	</table:template>-->
+					<!--</table:Column>-->
+					<!--<table:Column width="200px" filterProperty="ChangedBy" sortProperty="ChangedBy">-->
+					<!--	<Label text="ChangedBy" />-->
+					<!--	<table:template>-->
+					<!--		<Text text="{mainModel>ChangedBy}"/>-->
+					<!--	</table:template>-->
+					<!--</table:Column>-->
+				</table:columns>
+			</table:Table>
+		</Page>
+		</pages>
+		</App>
+	</Shell>
+</mvc:View>

@@ -44,5 +44,20 @@
 				"goTo":"ajpyun"
 			}
 		]
+	},
+	{
+		"text": "SMMOON",
+		"ref": "sap-icon://attachment-audio",
+		"type": "Inactive",
+		"goTo":"",
+		"nodes":
+		[
+			{
+				"text": "SMMOON",
+				"ref": "sap-icon://create",
+				"type": "Active",
+				"goTo":"smmoon"
+			}
+		]
 	}
 ]
