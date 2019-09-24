@@ -40,7 +40,7 @@
 								showClearButton="true">
 								<fb:filterGroupItems>
 									
-									<fb:FilterGroupItem groupName="__$INTERNAL$" name="Product" label="Product" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="Material" label="Product" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
 										<fb:control>
 											<m:MultiInput 
 												id="mutiProduct" 
@@ -60,7 +60,7 @@
 											</m:MultiInput>
 										</fb:control>
 									</fb:FilterGroupItem>
-									<fb:FilterGroupItem groupName="__$INTERNAL$" name="ProductGroup" label="ProductGroup" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="MaterialGroup" label="ProductGroup" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
 										<fb:control>
 											<m:MultiInput 
 												id="mutiProductGroup"
@@ -120,7 +120,7 @@
 											</m:MultiInput>
 										</fb:control>
 									</fb:FilterGroupItem>
-									<fb:FilterGroupItem groupName="__$INTERNAL$" name="InfoRecordCategory" label="InfoRecordCategory" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="PurchasingInfoRecordCategor" label="InfoRecordCategory" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
 										<fb:control>
 											<m:MultiInput 
 												id="mutiRecordCat"
@@ -136,26 +136,6 @@
 											</m:MultiInput>
 										</fb:control>
 									</fb:FilterGroupItem>
-									<fb:FilterGroupItem groupName="__$INTERNAL$" name="PurchasingOrganization" label="PurchasingOrganization" labelTooltip="Tooltip Example" partOfCurrentVariant="true" visibleInFilterBar="true">
-										<fb:control>
-											<m:MultiInput 
-												id="mutiPurOrg"
-												showValueHelp="true" 
-												valueHelpRequest="onMultiValueHelpDialog($event, 'PurchasingOrganization')"
-												showSuggestion="true"
-												valueStateText="Not a valid value"
-												suggestionItems="{
-													path: 'PurchaseOrg>/YY1_PurchasingOrg',
-													sorter: { path: 'PurchasingOrganization' },
-													parameters : {
-														select : 'PurchasingOrganization,PurchasingOrganizationName'
-													},
-													length : 1000
-												}">
-												<core:ListItem key="{PurchaseOrg>PurchasingOrganization}" text="{PurchaseOrg>PurchasingOrganization}" additionalText="{PurchaseOrg>PurchasingOrganizationName}"/>
-											</m:MultiInput>
-										</fb:control>
-									</fb:FilterGroupItem>
 								</fb:filterGroupItems>			 	
 										
 						    </fb:FilterBar>
@@ -166,7 +146,7 @@
 								<subSections>
 									<ObjectPageSubSection>
 										<blocks>
-											<table:Table id="tableModel"
+										<table:Table id="tableModel"
 												rows="{mainModel>/}"
 												selectionMode="MultiToggle"
 												selectionBehavior="Row"
@@ -183,91 +163,97 @@
 													</m:Toolbar>
 												</table:extension>
 												<table:columns>
-													<table:Column width="200px">
+													<table:Column width="155px">
 														<m:Label text="PurchasingInfoRecord" />
 														<table:template>
   															<m:Text text="{mainModel>PurchasingInfoRecord}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="75px">
 														<m:Label text="Supplier" />
 														<table:template>
   															<m:Text text="{mainModel>Supplier}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="265px">
 														<m:Label text="SupplierName" />
 														<table:template>
   															<m:Text text="{mainModel>SupplierName}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="215px">
 														<m:Label text="PurchasingInfoRecordCategory" />
 														<table:template>
   															<m:Text text="{mainModel>PurchasingInfoRecordCategor}"/>
 														</table:template>
 													</table:Column>
-													<!--<table:Column width="200px">-->
-													<!--	<m:Label text="PurchasingInfoRecordCategory Text" />-->
-													<!--	<table:template>-->
-  											<!--				<m:Text text="{mainModel>PurchasingInfoRecordCategoryText}"/>-->
-													<!--	</table:template>-->
-													<!--</table:Column>-->
-													<table:Column width="200px">
+													<table:Column width="165px">
 														<m:Label text="Product" />
 														<table:template>
   															<m:Text text="{mainModel>Material}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="300px">
 														<m:Label text="ProductText" />
 														<table:template>
   															<m:Text text="{mainModel>ProductDescription}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="60px">
 														<m:Label text="Plant" />
 														<table:template>
   															<m:Text text="{mainModel>Plant}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="150px">
 														<m:Label text="PlantName" />
 														<table:template>
   															<m:Text text="{mainModel>PlantName}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="110px">
 														<m:Label text="ProductGroup" />
 														<table:template>
   															<m:Text text="{mainModel>ProductGroup}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="150px">
 														<m:Label text="ProductGroupName" />
 														<table:template>
   															<m:Text text="{mainModel>ProductGroupName}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="120px" hAlign="Right">
 														<m:Label text="NetPriceAmount" />
 														<table:template>
-  															<m:Text text="{mainModel>NetPriceAmount}"/>
+  															<m:Text text="{
+																path:'mainModel>NetPriceAmount',
+																type: 'sap.ui.model.type.Float',
+																formatOptions: {
+																	minFractionDigits: 0
+																}
+															}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="150px" hAlign="Right">
 														<m:Label text="ProductPriceUnitQty" />
 														<table:template>
-  															<m:Text text="{mainModel>MaterialPriceUnitQty}"/>
+  															<m:Text text="{
+																path:'mainModel>MaterialPriceUnitQty',
+																type: 'sap.ui.model.type.Float',
+																formatOptions: {
+																	minFractionDigits: 0
+																}
+															}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="80px">
 														<m:Label text="Currency" />
 														<table:template>
   															<m:Text text="{mainModel>Currency}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="150px">
 														<m:Label text="PriceValidityEndDate" />
 														<table:template>
   															<m:Text text="{
@@ -285,33 +271,182 @@
   															<m:Text text="{mainModel>InvoiceIsGoodsReceiptBased}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="75px">
 														<m:Label text="TaxCode" />
 														<table:template>
   															<m:Text text="{mainModel>TaxCode}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="140px">
 														<m:Label text="PricingDateControl" />
 														<table:template>
   															<m:Text text="{mainModel>PricingDateControl}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="220px">
 														<m:Label text="LastReferencingPurchaseOrder" />
 														<table:template>
   															<m:Text text="{mainModel>LastReferencingPurchaseOrder}"/>
 														</table:template>
 													</table:Column>
-													<table:Column width="200px">
+													<table:Column width="210px">
 														<m:Label text="LastReferencingPurOrderItem" />
 														<table:template>
   															<m:Text text="{mainModel>LastReferencingPurOrderItem}"/>
 														</table:template>
 													</table:Column>
+													<table:Column width="200px" filterProperty="YY1_OPNNO_PRD" sortProperty="YY1_OPNNO_PRD">
+														<m:Label text="{i18n>tblMPNNumber}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_OPNNO_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="570px" filterProperty="YY1_DESCRIPTION_PRD" sortProperty="YY1_DESCRIPTION_PRD">
+														<m:Label text="{i18n>tblLongText}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_DESCRIPTION_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="110px" filterProperty="YY1_HSCODE_PRD" sortProperty="YY1_HSCODE_PRD">
+														<m:Label text="{i18n>tblHSCode}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_HSCODE_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px" filterProperty="YY1_HSCODEDESC_PRD" sortProperty="YY1_HSCODEDESC_PRD">
+														<m:Label text="{i18n>tblHSCodeText}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_HSCODEDESC_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="105px" filterProperty="YY1_ECCNCODE_PRD" sortProperty="YY1_ECCNCODE_PRD">
+														<m:Label text="{i18n>tblECCNCode}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_ECCNCODE_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="150px" filterProperty="YY1_LICENSETYPENO_PRD" sortProperty="YY1_LICENSETYPENO_PRD">
+														<m:Label text="{i18n>tblLTLicenseNo}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_LICENSETYPENO_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="85px" filterProperty="YY1_BOM_IDV_PRD" sortProperty="YY1_BOM_IDV_PRD">
+														<m:Label text="{i18n>tblOPNIDV}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_BOM_IDV_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="100px" filterProperty="YY1_OPNEDV_PRD" sortProperty="YY1_OPNEDV_PRD">
+														<m:Label text="{i18n>tblOPNEDV}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_OPNEDV_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="90px" filterProperty="YY1_STD_EDV_PRD" sortProperty="YY1_STD_EDV_PRD">
+														<m:Label text="{i18n>tblStdEDV}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_STD_EDV_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="70px" filterProperty="YY1_DENSITY_PRD" sortProperty="YY1_DENSITY_PRD">
+														<m:Label text="{i18n>tblDensity}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_DENSITY_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="90px" filterProperty="YY1_PROCESSTECHNOLOGY_PRD" sortProperty="YY1_PROCESSTECHNOLOGY_PRD">
+														<m:Label text="{i18n>tblGeometry}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_PROCESSTECHNOLOGY_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="280px" filterProperty="YY1_TEMPERATUREGRADE_PRD" sortProperty="YY1_TEMPERATUREGRADE_PRD">
+														<m:Label text="{i18n>tblTemperatureGrade}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_TEMPERATUREGRADE_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="220px" filterProperty="YY1_QUALITYGRADE_PRD" sortProperty="YY1_QUALITYGRADE_PRD">
+														<m:Label text="{i18n>tblQualityGrade}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_QUALITYGRADE_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px" filterProperty="YY1_SIMILARTOPARTNO_PRD" sortProperty="YY1_SIMILARTOPARTNO_PRD">
+														<m:Label text="{i18n>tblSimilartoPartNumber}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_SIMILARTOPARTNO_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="150px" filterProperty="YY1_PACKAGETYPEDETAILS_PRD" sortProperty="YY1_PACKAGETYPEDETAILS_PRD">
+														<m:Label text="{i18n>tblPackageTypeDetail}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_PACKAGETYPEDETAILS_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="110px" filterProperty="YY1_PACKAGECODE_PRD" sortProperty="YY1_PACKAGECODE_PRD">
+														<m:Label text="{i18n>tblPackageCode}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_PACKAGECODE_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="180px" filterProperty="YY1_PACKAGEMATERIALSET_PRD" sortProperty="YY1_PACKAGEMATERIALSET_PRD">
+														<m:Label text="{i18n>tblPackageMaterialSet}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_PACKAGEMATERIALSET_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="130px" filterProperty="YY1_CUSTOMER_NAME_PRD" sortProperty="YY1_CUSTOMER_NAME_PRD">
+														<m:Label text="{i18n>tblCustomerName}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_CUSTOMER_NAME_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="110px" filterProperty="YY1_PRODUCTTYPE_PRD" sortProperty="YY1_PRODUCTTYPE_PRD">
+														<m:Label text="{i18n>tblProductType}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_PRODUCTTYPE_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px" filterProperty="YY1_PRODCHAR_FAMILY_PRD" sortProperty="YY1_PRODCHAR_FAMILY_PRD">
+														<m:Label text="{i18n>tblProductCharProductFamily}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_PRODCHAR_FAMILY_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="200px" filterProperty="YY1_PRODCHAR_TYPE_PRD" sortProperty="YY1_PRODCHAR_TYPE_PRD">
+														<m:Label text="{i18n>tblProductCharProductType}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_PRODCHAR_TYPE_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="60px" filterProperty="YY1_ECC_PRD" sortProperty="YY1_ECC_PRD">
+														<m:Label text="{i18n>tblECC}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_ECC_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="70px" filterProperty="YY1_CONFIG_PRD" sortProperty="YY1_CONFIG_PRD">
+														<m:Label text="{i18n>tblConfig}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_CONFIG_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="70px" filterProperty="YY1_VALTAGE_PRD" sortProperty="YY1_VALTAGE_PRD">
+														<m:Label text="{i18n>tblVoltage}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_VALTAGE_PRD}"/>
+														</table:template>
+													</table:Column>
+													<table:Column width="60px" filterProperty="YY1_TECH_PRD" sortProperty="YY1_TECH_PRD">
+														<m:Label text="{i18n>tblTech}" />
+														<table:template>
+															<m:Text text="{mainModel>YY1_TECH_PRD}"/>
+														</table:template>
+													</table:Column>
 												</table:columns>
 											</table:Table>
-											
 										</blocks>
 									</ObjectPageSubSection>
 								</subSections>

@@ -46,7 +46,7 @@ sap.ui.define([
 			}), "layout");
 		},
 		_setMainViewModel  :function(oView){
-			oView.setModel(new JSONModel([]), "CIDocJson");
+			oView.setModel(new JSONModel([{}]), "CIDocJson");
 		},
 		_setPoPupModel  :function(oView){
 			oView.setModel(new JSONModel([]), "ResultList");
@@ -223,24 +223,24 @@ sap.ui.define([
 			return [];
 		},
 		onDetailPage : function(oEvent){
-			var oTemplate = oEvent.getSource(),
-				oRowTemplate = oTemplate.getParent().getParent(),
-				iIndex = oRowTemplate.getIndex();
-			var oView = this.getView(),
-				oTable = oView.byId("CIDocList"),
-				oTableModel = oView.getModel("CIDocJson"),
-				sContext = oTable.getContextByIndex(iIndex).getPath(),
-				oRowData = oTableModel.getProperty(sContext);
+			// var oTemplate = oEvent.getSource(),
+			// 	oRowTemplate = oTemplate.getParent().getParent(),
+			// 	iIndex = oRowTemplate.getIndex();
+			// var oView = this.getView(),
+			// 	oTable = oView.byId("CIDocList"),
+			// 	oTableModel = oView.getModel("CIDocJson"),
+			// 	sContext = oTable.getContextByIndex(iIndex).getPath(),
+			// 	oRowData = oTableModel.getProperty(sContext);
 			
 			
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("CreateCommercialInvoice",{
 				LayoutOption : "Display",
-				List : JSON.stringify([oRowData.EXCINO]),
-				ShipToParty : oRowData.ShipToParty,
-				SoldToParty : oRowData.SoldToParty
+				List : "List",
+				ShipToParty : "ShipToParty",
+				SoldToParty : "SoldToParty"
 			});
-			oTableModel.setProperty("/", []);
+			// oTableModel.setProperty("/", []);
 		},
 		onDataExport :function(){
 			

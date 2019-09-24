@@ -31,7 +31,7 @@ sap.ui.define([
 					flgNewAndUpDate = false;
 				}
 				if(oArgs.List){
-					this._getDeliveryData(JSON.parse(oArgs.List), oArgs.SoldToParty, oArgs.ShipToParty);
+					// this._getDeliveryData(oArgs.List, oArgs.SoldToParty, oArgs.ShipToParty);
 				}
 				
 				this._setLayout(oView);
@@ -661,7 +661,7 @@ sap.ui.define([
 		},
 		onViewPage : function(){
 			 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("View");
+			oRouter.navTo("TargetCommercialInvoice");
 		}
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

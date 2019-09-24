@@ -28,7 +28,6 @@ sap.ui.define([
 				table: this.getView().byId("tableModel"),
 				persoService: PersoService
 			});
-			// this.onReadTextModel();
 			
 			oView.setModel(new JSONModel([
 				{ Code : "0", Name : "Standard"},
@@ -40,7 +39,6 @@ sap.ui.define([
 			this._setMultiInputValidation(oView.byId("mutiSupplier"));
 			this._setMultiInputValidation(oView.byId("mutiPlant"));
 			this._setMultiInputValidation(oView.byId("mutiRecordCat"));
-			this._setMultiInputValidation(oView.byId("mutiPurOrg"));
 			
 		},
 		_setMultiInputValidation : function(oMultiInput){
@@ -69,47 +67,20 @@ sap.ui.define([
 				oLayout = oView.getModel("layout");
 			var aFilterItems = oTemplate.getFilterGroupItems(),
 				aFilter = [];
-			// var odataModel2 = new ODataModel("/S4HC_QBasic/sap/opu/odata/sap/API_OUTBOUND_DELIVERY_SRV",{ useBatch: false});
-			// odataModel2.read("/",{
-			// 	headers : {
-			// 		"If-Match" : "w/"
-			// 	},
-			// 	success : function(oData, response) { 
-			// 		console.log(oData);
-			// 		console.log(response);
-			// 		odataModel2.callFunction("/PostGoodsIssue", {
-			// 			method : "POST",
-			// 			eTag : "w/",
-			// 			urlParameters : {
-			// 				DeliveryDocument : '80000033'
-			// 			},
-			// 			success : function(oData, response) { 
-			// 				MessageToast.show("완료 되었습니다.");
-			// 			}, 
-			// 			error : function(oError){
-							
-			// 			}	
-			// 		}); 
-			// 	}
-			// });
 			
-			
-			// aFilterItems.forEach(function(item){
-			// 	var sFieldName = item.getName();
-			// 	switch(sFieldName) {
-			// 		case "InfoRecordCategory" :
-			// 			sFieldName = "PurchasingInfoRecordCategor";
-			// 			break;
-			// 		case "PurchasingOrganization" :
-			// 			sFieldName = ""; // Spec & View 에서 PurchasingOrganization 필드가 없음(필터를 걸 필드가 없음!)
-			// 			break;
-			// 	}
-			// 	var oControl = item.getControl(),
-			// 		oFilter = this._getControlValue(oControl, sFieldName);
-			// 	if(oFilter){
-			// 		aFilter.push(oFilter);
-			// 	}
-			// }.bind(this));
+			aFilterItems.forEach(function(item){
+				var sFieldName = item.getName();
+				switch(sFieldName) {
+					case "InfoRecordCategory" :
+						sFieldName = "PurchasingInfoRecordCategor";
+						break;
+				}
+				var oControl = item.getControl(),
+					oFilter = this._getControlValue(oControl, sFieldName);
+				if(oFilter){
+					aFilter.push(oFilter);
+				}
+			}.bind(this));
 			
 			// oTable.setBusy(true);
 			// oTable.setSelectedIndex(-1);
@@ -218,26 +189,6 @@ sap.ui.define([
 			return oFilter;
 		},
 		
-		onReadTextModel : function() {
-			var self = this,
-				oViewContent = this.getView().byId("ObjectPageLayout");
-			
-			oViewContent.setBusy(true);
-			var oPlant = this.getOwnerComponent().getModel("Plant"),
-				oBusinessPartner = this.getOwnerComponent().getModel("BusinessPartner"),
-				oProduct = this.getOwnerComponent().getModel("Product"),
-				oStorageLocation = this.getOwnerComponent().getModel("StorageLocation");
-			
-			$.when(
-            this._getODataRead("Supplier", oBusinessPartner, "/A_Supplier"),
-            this._getODataRead("Plant", oPlant, "/A_Plant"),
-            this._getODataRead("Product", oProduct, "/YY1_ProductView"),
-            this._getODataRead("StorageLocation", oStorageLocation, "/YY1_StorageLocationView")
-         ).done(function(){
-			oViewContent.setBusy(false);
-			// self.onSearchTable();
-         });
-		},
 		_getODataRead : function(name, oModel, readContext, aFilter, oParameters){
 			var self = this,
 				deferred = $.Deferred();
@@ -274,80 +225,6 @@ sap.ui.define([
 			return deferred.promise();
 		},
 		
-		_readMainModel : function(aFilter) {
-			var oView = this.getView(),
-				self = this,
-				oModel = oView.getModel("mainModel"),
-				oLayout = oView.getModel("layout"),
-				oOdataModel = oView.getModel("oOdataModel");
-				
-			oOdataModel.read("/YY1_MM002_Purchase", {
-				filters : aFilter,
-				success : function(oReturn) {
-					var oResults = oReturn.results,
-						aTableRows = [];
-					var oStorageLocation = self._aListText["StorageLocation"].reduce(function(total, item){
-							var sKey = item.StorageLocation;
-							if(!total[sKey]){
-								total[sKey] = [];
-							}
-							total[sKey].push(item);
-							return total;
-					}, {}),
-						oProduct = self._aListText["Product"].reduce(function(total, item){
-							var sKey = item.Product;
-							if(!total[sKey]){
-								total[sKey] = [];
-							}
-							total[sKey].push(item);
-							return total;
-					}, {}),
-						oSupplier = self._aListText["Supplier"].reduce(function(total, item){
-							var sKey = item.Supplier;
-							if(!total[sKey]){
-								total[sKey] = [];
-							}
-							total[sKey].push(item);
-							return total;
-					}, {}),
-					oPlant = self._aListText["Plant"].reduce(function(total, item){
-							var sKey = item.Plant;
-							if(!total[sKey]){
-								total[sKey] = [];
-							}
-							total[sKey].push(item);
-							return total;
-					}, {});
-					oResults.forEach(function(item, idx) {
-						
-						/* Text Setting */
-						if(oPlant[item.Plant]) {
-							item.PlantName = oPlant[item.Plant][0].PlantName;
-						}
-						if(oStorageLocation[item.StorageLocation]) {
-							item.StorageLocationText = oStorageLocation[item.StorageLocation][0].StorageLocationName;
-						}
-						if(oProduct[item.Material]) {
-							item.ProductText = oProduct[item.Material][0].ProductName;
-							item.ProductGroupName = oProduct[item.Material][0].MaterialGroupName;
-						}
-						if(oSupplier[item.Supplier]) {
-							item.SupplierName = oSupplier[item.Supplier][0].SupplierName;
-						}
-						if(item.InvoiceIsGoodsReceiptBased){
-							item.InvoiceIsGoodsReceiptBased = "X";
-						}else{
-							item.InvoiceIsGoodsReceiptBased = "";
-						}
-						
-						aTableRows.push(item);
-					});
-					
-					oModel.setProperty("/", aTableRows);
-					oLayout.setProperty("/itemLength", aTableRows.length);
-				}
-			});
-		},
 		
 		onMultiValueHelpDialog : function(oEvent, sGubunField, sSearchField){
 			var oInput = oEvent.getSource(),
